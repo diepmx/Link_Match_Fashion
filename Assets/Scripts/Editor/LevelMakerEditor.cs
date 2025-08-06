@@ -284,7 +284,7 @@ public class LevelMakerEditor : EditorWindow
 	{
 		GUILayout.Space(100);
 		GUILayout.Label("CAUTION!", EditorStyles.boldLabel, new GUILayoutOption[] { GUILayout.Width(600) });
-		GUILayout.Label("Please open scene - game ( Assets/JuiceFresh/Scenes/game.unity )", EditorStyles.boldLabel, new GUILayoutOption[] { GUILayout.Width(600) });
+		GUILayout.Label("Please open scene - game ( Assets/Scenes/game.unity )", EditorStyles.boldLabel, new GUILayoutOption[] { GUILayout.Width(600) });
 
 	}
 
@@ -2174,7 +2174,7 @@ public class LevelMakerEditor : EditorWindow
 		if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.LinuxEditor) //1.4.9
 		{
 			//Write to file
-			string activeDir = Application.dataPath + @"/JuiceFresh/Resources/Levels/";
+			string activeDir = Application.dataPath + @"/Resources/Levels/";
 			string newPath = System.IO.Path.Combine(activeDir, levelNumber + ".txt");
 			StreamWriter sw = new StreamWriter(newPath);
 			sw.Write(saveString);
