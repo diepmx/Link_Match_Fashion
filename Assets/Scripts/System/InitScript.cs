@@ -180,18 +180,18 @@ public class InitScript : MonoBehaviour
         GameObject.Find("Music").GetComponent<AudioSource>().volume = PlayerPrefs.GetInt("Music");
         SoundBase.Instance.GetComponent<AudioSource>().volume = PlayerPrefs.GetInt("Sound");
 #if UNITY_ADS//1.3
-		enableUnityAds = true;
-        var unityAds = Resources.Load<UnityAdsID>("UnityAdsID");
-        #if UNITY_ANDROID
-            Advertisement.Initialize(unityAds.androidID,false);
-        #elif UNITY_IOS
-            Advertisement.Initialize(unityAds.iOSID,false);
-        #endif
+        enableUnityAds = false; // Tắt Unity Ads
+        //var unityAds = Resources.Load<UnityAdsID>("UnityAdsID");
+        //#if UNITY_ANDROID
+        //    Advertisement.Initialize(unityAds.androidID,false);
+        //#elif UNITY_IOS
+        //    Advertisement.Initialize(unityAds.iOSID,false);
+        //#endif
 #else
         enableUnityAds = false;
 #endif
 #if CHARTBOOST_ADS//1.4.1
-		enableChartboostAds = true;
+        enableChartboostAds = false; // Tắt Chartboost Ads
 #else
         enableChartboostAds = false;
 #endif
@@ -203,7 +203,7 @@ public class InitScript : MonoBehaviour
 #endif
 
 #if GOOGLE_MOBILE_ADS
-		enableGoogleMobileAds = true;//1.3
+        enableGoogleMobileAds = false; // Tắt Google Mobile Ads
 #if UNITY_ANDROID
         MobileAds.Initialize(admobUIDAndroid);
         interstitial = new InterstitialAd(admobUIDAndroid);
@@ -271,47 +271,14 @@ public class InitScript : MonoBehaviour
 
     public bool GetRewardedUnityAdsReady()
     {
-#if UNITY_ADS
-
-		rewardedVideoZone = "rewardedVideo";
-		if (Advertisement.IsReady (rewardedVideoZone)) {
-			return true;
-		} else {
-			rewardedVideoZone = "rewardedVideoZone";
-			if (Advertisement.IsReady (rewardedVideoZone)) {
-				return true;
-			}
-		}
-#endif
-
+        // Tắt Unity Ads
         return false;
     }
 
     public void ShowRewardedAds()
     {
-#if UNITY_ADS
-		Debug.Log ("show Unity Rewarded ads video in " + LevelManager.THIS.gameStatus);
-
-		if (GetRewardedUnityAdsReady ()) {
-			Advertisement.Show (rewardedVideoZone, new ShowOptions {
-				resultCallback = result => {
-					if (result == ShowResult.Finished) {
-						CheckRewardedAds ();
-					}
-				}
-			});
-		}
-#elif GOOGLE_MOBILE_ADS//2.2
-        bool stillShow = true;
-#if UNITY_ADS
-        stillShow = !GetRewardedUnityAdsReady ();
-#endif
-        if(stillShow)
-        {
-            Debug.Log("show Admob Rewarded ads video in " + LevelManager.THIS.gameStatus);
-            RewAdmobManager.THIS.ShowRewardedAd(CheckRewardedAds);
-        }
-#endif
+        // Tắt tất cả quảng cáo
+        CheckRewardedAds(); // Trả thưởng trực tiếp
     }
 
     public void CheckAdsEvents(GameState state)
@@ -351,14 +318,14 @@ public class InitScript : MonoBehaviour
     {
         Debug.Log("show Unity ads video on " + LevelManager.THIS.gameStatus);
 #if UNITY_ADS
-
-		if (Advertisement.IsReady ("video")) {
-			Advertisement.Show ("video");
-		} else {
-			if (Advertisement.IsReady ("defaultZone")) {
-				Advertisement.Show ("defaultZone");
-			}
-		}
+        // Tắt Unity Ads
+        //if (Advertisement.IsReady ("video")) {
+        //    Advertisement.Show ("video");
+        //} else {
+        //    if (Advertisement.IsReady ("defaultZone")) {
+        //        Advertisement.Show ("defaultZone");
+        //    }
+        //}
 #endif
     }
 

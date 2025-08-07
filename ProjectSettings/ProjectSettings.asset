@@ -951,11 +951,16 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
-    Build: 1
+    Build: 0
     Collab: 1
     ErrorHub: 0
+    Game Performance: 0
     Hub: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
     UNet: 1
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -975,11 +980,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: cee46760-e449-41d5-850c-bcc921ab331b
+  cloudProjectId: 206bacf5-ed9b-4153-aa49-29ccb3ccfb3b
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Juice_Fresh
-  organizationId: tiendat99
+  organizationId: sansania
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 1
   hmiLoadingImage: {fileID: 0}
