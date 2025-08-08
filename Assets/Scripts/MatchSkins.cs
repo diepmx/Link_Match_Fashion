@@ -105,6 +105,49 @@ namespace Spine.Unity {
 			}
 			UpdateCombinedSkin();
 		}
+		
+		// Fashion system integration
+		public void EquipFashionItem(FashionItem fashionItem) {
+			if (fashionItem == null || string.IsNullOrEmpty(fashionItem.spineSkinName)) return;
+			
+			switch (fashionItem.itemType) {
+				case FashionItemType.Cloth:
+					clothesSkin = fashionItem.spineSkinName;
+					break;
+				case FashionItemType.Pants:
+					pantsSkin = fashionItem.spineSkinName;
+					break;
+				case FashionItemType.Bag:
+					bagSkin = fashionItem.spineSkinName;
+					break;
+				case FashionItemType.Hat:
+					hatSkin = fashionItem.spineSkinName;
+					break;
+				default:
+					break;
+			}
+			UpdateCombinedSkin();
+		}
+		
+		public void UnequipFashionItemType(FashionItemType itemType) {
+			switch (itemType) {
+				case FashionItemType.Cloth:
+					clothesSkin = "";
+					break;
+				case FashionItemType.Pants:
+					pantsSkin = "";
+					break;
+				case FashionItemType.Bag:
+					bagSkin = "";
+					break;
+				case FashionItemType.Hat:
+					hatSkin = "";
+					break;
+				default:
+					break;
+			}
+			UpdateCombinedSkin();
+		}
 
 		public void OptimizeSkin () {
 			// Create a repacked skin.
