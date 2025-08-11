@@ -917,7 +917,7 @@ MonoBehaviour:
   backgroundImage: {fileID: 1372894417}
   char1: {fileID: 75854213}
   char2: {fileID: 1389531177}
-  sequence: {fileID: 11400000, guid: 1b56e568fdc89c74db993a0ac33a8af4, type: 2}
+  inkJSONAsset: {fileID: 4900000, guid: fe639aa7f6a668e4cbaa338c1af1ab5b, type: 3}
   char1Id: Alice
   char2Id: Ethan
   bgPan: {fileID: 800734114}
