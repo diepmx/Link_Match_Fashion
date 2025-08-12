@@ -1083,56 +1083,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108975631}
   m_CullTransparentMesh: 1
---- !u!1 &141164064
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 141164066}
-  - component: {fileID: 141164065}
-  m_Layer: 0
-  m_Name: FashionCharacterController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &141164065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141164064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ffafab5bb56e4b469cef89cd8c791cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  matchSkins: {fileID: 1630253250}
-  skeletonAnimation: {fileID: 1630253251}
-  idleAnimation: idle
-  walkAnimation: walk
-  danceAnimation: dance
-  poseAnimation: pose
---- !u!4 &141164066
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141164064}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 347.1077, y: 1569.5482, z: -4.831169}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &195950411
 GameObject:
   m_ObjectHideFlags: 0
@@ -3979,55 +3929,6 @@ MonoBehaviour:
   itemSkin: accessories/bag
   itemType: 2
   backgroundImage: {fileID: 1068730033}
---- !u!1 &782847896
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 782847898}
-  - component: {fileID: 782847897}
-  m_Layer: 0
-  m_Name: FashionManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &782847897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782847896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0419d8ed43901094c94bd9660da2966c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fashionDatabase: {fileID: 11400000, guid: 48e9f7e8917840647a877f73dfb7ffb0, type: 2}
-  playerInventory: []
-  equippedItems: []
-  coins: 1000
-  gems: 50
---- !u!4 &782847898
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782847896}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 347.1077, y: 1569.5482, z: -4.831169}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &785918047
 GameObject:
   m_ObjectHideFlags: 0
@@ -5430,37 +5331,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985279236}
   m_CullTransparentMesh: 1
---- !u!1 &1060255857
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1060255858}
-  m_Layer: 0
-  m_Name: FashionUI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1060255858
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1060255857}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 347.1077, y: 1569.5482, z: -4.831169}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1068730031
 GameObject:
   m_ObjectHideFlags: 0
@@ -11571,9 +11441,6 @@ SceneRoots:
   - {fileID: 957198346}
   - {fileID: 1630253254}
   - {fileID: 1088069985}
-  - {fileID: 782847898}
-  - {fileID: 141164066}
-  - {fileID: 1060255858}
   - {fileID: 1568772352}
   - {fileID: 744043038}
   - {fileID: 1616183354}
