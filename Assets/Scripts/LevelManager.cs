@@ -1376,6 +1376,13 @@ public class LevelManager : MonoBehaviour
 		NetworkManager.dataManager.SetStars();
 #endif
 
+		// Award Coins on level win based on score and stars
+		int coinReward = CalculateCoinReward(Score, stars);
+		if (coinReward > 0)
+		{
+			InitScript.Instance.AddCoins(coinReward);
+		}
+
 		gameStatus = GameState.Win;
 	}
 
@@ -3209,6 +3216,13 @@ public class LevelManager : MonoBehaviour
 				SoundBase.Instance.PlaySound(SoundBase.Instance.getStarIngr);
 			star3Anim.SetActive(true);
 		}
+	}
+
+	private int CalculateCoinReward(int score, int starsEarned)
+	{
+		int baseByStars = 50 * Mathf.Max(0, starsEarned); // 0, 50, 100, 150
+		int scoreBonus = Mathf.Max(0, score / 1000) * 10; // 10 coins per 1000 score
+		return baseByStars + scoreBonus;
 	}
 
 	public void LoadDataFromLocal(int currentLevel)

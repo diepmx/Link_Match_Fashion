@@ -474,12 +474,12 @@ public class AnimationManager : MonoBehaviour
         }
         else if (gameObject.name == "MenuPlay")
         {
-            if (InitScript.lifes > 0)
+            // Use Energy instead of Lives
+            if (InitScript.Instance.CanStart(InitScript.Instance.EnergyCostPerPlay))
             {
-                //InitScript.Instance.SpendLife(1);
+                InitScript.Instance.SpendEnergy(InitScript.Instance.EnergyCostPerPlay);
                 LevelManager.THIS.gameStatus = GameState.PrepareGame;
                 CloseMenu();
-                //Application.LoadLevel( "game" );
             }
             else
             {
@@ -517,9 +517,8 @@ public class AnimationManager : MonoBehaviour
 
     public void Again()
     {
-        if (InitScript.lifes > 0)
+        if (InitScript.Instance.CanStart(InitScript.Instance.EnergyCostPerPlay))
         {
-
             SoundBase.Instance.PlaySound(SoundBase.Instance.click);
             LevelManager.THIS.gameStatus = GameState.PrepareGame;
             keepGaming = true;

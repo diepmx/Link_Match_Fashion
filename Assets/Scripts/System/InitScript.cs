@@ -100,11 +100,20 @@ public class InitScript : MonoBehaviour
     }
 
     public int CapOfLife = 5;
+    // Energy system (replaces lives)
+    public int EnergyMax = 5;
+    public int EnergyCostPerPlay = 1;
+    public static int Energy;
+    public static event Action<int> OnEnergyChanged;
     public float TotalTimeForRestLifeHours = 0;
     public float TotalTimeForRestLifeMin = 15;
     public float TotalTimeForRestLifeSec = 60;
     public int FirstGems = 20;
     public static int Gems;
+    public static event Action<int> OnGemsChanged;
+    // Currency: Coins for purchasing fashion items
+    public static int Coins;
+    public static event Action<int> OnCoinsChanged;
     public static int waitedPurchaseGems;
     private int BoostExtraMoves;
     private int BoostPackages;
@@ -157,13 +166,30 @@ public class InitScript : MonoBehaviour
 
         DateOfExit = PlayerPrefs.GetString("DateOfExit", "");
         Gems = PlayerPrefs.GetInt("Gems");
+        Coins = PlayerPrefs.GetInt("Coins");
         lifes = PlayerPrefs.GetInt("Lifes");
+        // Energy initialization and migration from legacy lives
+        EnergyMax = CapOfLife > 0 ? CapOfLife : 5;
+        Energy = PlayerPrefs.GetInt("Energy", -1);
+        if (Energy < 0)
+        {
+            // Migrate from legacy lives or start full
+            int legacyLives = PlayerPrefs.GetInt("Lifes", -1);
+            Energy = legacyLives >= 0 ? Mathf.Clamp(legacyLives, 0, EnergyMax) : EnergyMax;
+            PlayerPrefs.SetInt("Energy", Energy);
+        }
         if (PlayerPrefs.GetInt("Lauched") == 0)
         {    //First lauching
             lifes = CapOfLife;
             PlayerPrefs.SetInt("Lifes", lifes);
             Gems = FirstGems;
             PlayerPrefs.SetInt("Gems", Gems);
+            // Initialize Energy to full
+            Energy = EnergyMax;
+            PlayerPrefs.SetInt("Energy", Energy);
+            // Initialize Coins on first launch (default 0)
+            Coins = 0;
+            PlayerPrefs.SetInt("Coins", Coins);
             PlayerPrefs.SetInt("Music", 1);
             PlayerPrefs.SetInt("Sound", 1);
 
@@ -401,6 +427,7 @@ public class InitScript : MonoBehaviour
         Gems = count;
         PlayerPrefs.SetInt("Gems", Gems);
         PlayerPrefs.Save();
+        OnGemsChanged?.Invoke(Gems);
     }
 
     public void AddGems(int count)
@@ -408,6 +435,7 @@ public class InitScript : MonoBehaviour
         Gems += count;
         PlayerPrefs.SetInt("Gems", Gems);
         PlayerPrefs.Save();
+        OnGemsChanged?.Invoke(Gems);
 #if PLAYFAB || GAMESPARKS
 		NetworkManager.currencyManager.IncBalance (count);
 #endif
@@ -419,36 +447,109 @@ public class InitScript : MonoBehaviour
         Gems -= count;
         PlayerPrefs.SetInt("Gems", Gems);
         PlayerPrefs.Save();
+        OnGemsChanged?.Invoke(Gems);
 #if PLAYFAB || GAMESPARKS
 		NetworkManager.currencyManager.DecBalance (count);
 #endif
     }
 
+    // Energy API
+    public void SetEnergy(int count)
+    {
+        Energy = Mathf.Clamp(count, 0, EnergyMax);
+        PlayerPrefs.SetInt("Energy", Energy);
+        PlayerPrefs.Save();
+        OnEnergyChanged?.Invoke(Energy);
+    }
+
+    public void AddEnergy(int count)
+    {
+        if (count <= 0) return;
+        SetEnergy(Energy + count);
+    }
+
+    public bool SpendEnergy(int count)
+    {
+        if (count <= 0) return true;
+        if (Energy < count) return false;
+        SoundBase.Instance.PlaySound(SoundBase.Instance.cash);
+        SetEnergy(Energy - count);
+        return true;
+    }
+
+    public bool CanStart(int cost)
+    {
+        return Energy >= Mathf.Max(0, cost);
+    }
+
+    public void RestoreEnergy()
+    {
+        SetEnergy(EnergyMax);
+    }
+
+    public int GetEnergy()
+    {
+        if (Energy > EnergyMax)
+        {
+            SetEnergy(EnergyMax);
+        }
+        return Energy;
+    }
+
+    // Coins API
+    public void SetCoins(int count)
+    {
+        Coins = Mathf.Max(0, count);
+        PlayerPrefs.SetInt("Coins", Coins);
+        PlayerPrefs.Save();
+        OnCoinsChanged?.Invoke(Coins);
+    }
+
+    public void AddCoins(int count)
+    {
+        Coins += Mathf.Max(0, count);
+        PlayerPrefs.SetInt("Coins", Coins);
+        PlayerPrefs.Save();
+        OnCoinsChanged?.Invoke(Coins);
+    }
+
+    public bool SpendCoins(int count)
+    {
+        if (count <= 0) return true;
+        if (Coins < count) return false;
+        SoundBase.Instance.PlaySound(SoundBase.Instance.cash);
+        Coins -= count;
+        PlayerPrefs.SetInt("Coins", Coins);
+        PlayerPrefs.Save();
+        OnCoinsChanged?.Invoke(Coins);
+        return true;
+    }
+
 
     public void RestoreLifes()
     {
-        lifes = CapOfLife;
+        // Legacy wrapper → Energy
+        RestoreEnergy();
+        lifes = Energy;
         PlayerPrefs.SetInt("Lifes", lifes);
         PlayerPrefs.Save();
     }
 
     public void AddLife(int count)
     {
-        lifes += count;
-        if (lifes > CapOfLife)
-            lifes = CapOfLife;
+        // Legacy wrapper → Energy
+        AddEnergy(count);
+        lifes = Energy;
         PlayerPrefs.SetInt("Lifes", lifes);
         PlayerPrefs.Save();
     }
 
     public int GetLife()
     {
-        if (lifes > CapOfLife)
-        {
-            lifes = CapOfLife;
-            PlayerPrefs.SetInt("Lifes", lifes);
-            PlayerPrefs.Save();
-        }
+        // Legacy wrapper → Energy
+        lifes = GetEnergy();
+        PlayerPrefs.SetInt("Lifes", lifes);
+        PlayerPrefs.Save();
         return lifes;
     }
 
@@ -460,16 +561,13 @@ public class InitScript : MonoBehaviour
 
     public void SpendLife(int count)
     {
-        if (lifes > 0)
+        // Legacy wrapper → Energy
+        if (SpendEnergy(count))
         {
-            lifes -= count;
+            lifes = Energy;
             PlayerPrefs.SetInt("Lifes", lifes);
             PlayerPrefs.Save();
         }
-        //else
-        //{
-        //    GameObject.Find("Canvas").transform.Find("RestoreLifes").gameObject.SetActive(true);
-        //}
     }
 
     public void BuyBoost(BoostType boostType, int price, int count)
@@ -527,6 +625,7 @@ public class InitScript : MonoBehaviour
                 PlayerPrefs.SetFloat("RestLifeTimer", RestLifeTimer);
             }
             PlayerPrefs.SetInt("Lifes", lifes);
+            PlayerPrefs.SetInt("Energy", Energy);
             PlayerPrefs.SetString("DateOfExit", DateTime.Now.ToString());
             PlayerPrefs.Save();
         }
@@ -539,6 +638,7 @@ public class InitScript : MonoBehaviour
             PlayerPrefs.SetFloat("RestLifeTimer", RestLifeTimer);
         }
         PlayerPrefs.SetInt("Lifes", lifes);
+        PlayerPrefs.SetInt("Energy", Energy);
         PlayerPrefs.SetString("DateOfExit", DateTime.Now.ToString());
         PlayerPrefs.Save();
     }
@@ -572,6 +672,7 @@ public class InitScript : MonoBehaviour
         PlayerPrefs.SetFloat("RestLifeTimer", RestLifeTimer);
         //		}
         PlayerPrefs.SetInt("Lifes", lifes);
+        PlayerPrefs.SetInt("Energy", Energy);
         PlayerPrefs.SetString("DateOfExit", DateTime.Now.ToString());
         PlayerPrefs.Save();
 #if GOOGLE_MOBILE_ADS
