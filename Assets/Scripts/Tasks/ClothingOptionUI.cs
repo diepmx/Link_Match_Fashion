@@ -1,34 +1,52 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class ClothingOptionUI : MonoBehaviour
+namespace Spine.Unity
 {
-    [SerializeField] private Image icon;
-    [SerializeField] private Button selectButton;
-    [SerializeField] private GameObject premiumBadge;
-    [SerializeField] private Text priceText; // show gems price if premium
-
-    private FashionItemSO item;
-    private bool isPremium;
-
-    public Action<FashionItemSO, bool> onSelected;
-
-    public void Setup(FashionItemSO newItem, bool premium)
+    public class ClothingOptionUI : MonoBehaviour
     {
-        item = newItem;
-        isPremium = premium;
-        if (icon != null) icon.sprite = item != null ? item.icon : null;
-        if (premiumBadge != null) premiumBadge.SetActive(isPremium);
-        if (priceText != null)
+        [SerializeField] private Image icon;
+        [SerializeField] private Button selectButton;
+        [SerializeField] private GameObject premiumBadge;
+        [SerializeField] private Text priceText; // hiển thị giá
+        [SerializeField] private GameObject ownedTag; // hiển thị đã sở hữu
+
+        private FashionItemSO item;
+        private bool isPremium;
+
+        public Action<FashionItemSO, bool> onSelected;
+
+        public void Setup(FashionItemSO newItem, bool premium)
         {
-            priceText.gameObject.SetActive(isPremium);
-            priceText.text = isPremium && item != null ? item.gemsPrice.ToString() : string.Empty;
-        }
-        if (selectButton != null)
-        {
-            selectButton.onClick.RemoveAllListeners();
-            selectButton.onClick.AddListener(() => onSelected?.Invoke(item, isPremium));
+            item = newItem;
+            isPremium = premium;
+            if (icon != null) icon.sprite = item != null ? item.icon : null;
+
+            bool hasItem = item != null && InventoryManager.Instance != null && InventoryManager.Instance.HasItem(item.id);
+
+            if (premiumBadge != null) premiumBadge.SetActive(isPremium && !hasItem);
+            if (ownedTag != null) ownedTag.SetActive(hasItem);
+
+            if (priceText != null)
+            {
+                if (item == null || hasItem)
+                {
+                    priceText.gameObject.SetActive(false);
+                }
+                else
+                {
+                    bool showGems = item.gemsPrice > 0;
+                    bool showCoins = !showGems && item.coinsPrice > 0;
+                    priceText.gameObject.SetActive(showGems || showCoins);
+                    priceText.text = showGems ? item.gemsPrice.ToString() : (showCoins ? item.coinsPrice.ToString() : string.Empty);
+                }
+            }
+            if (selectButton != null)
+            {
+                selectButton.onClick.RemoveAllListeners();
+                selectButton.interactable = item != null;
+                selectButton.onClick.AddListener(() => onSelected?.Invoke(item, isPremium));
+            }
         }
     }
 }

@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskId: 0
   title: Story1
-  coinCost: 10
+  coinCost: 20
   slot: 2
   options:
   - {fileID: 11400000, guid: db8e337c883bc8e46b76dffacc7373d8, type: 2}
   - {fileID: 11400000, guid: c7100a6d2d0ed464aa643894492cbfd0, type: 2}
   - {fileID: 11400000, guid: fb4dfc18777dcdc4da6d2008973f3d56, type: 2}
-  premiumIndex: 2
+  premiumIndex: 3

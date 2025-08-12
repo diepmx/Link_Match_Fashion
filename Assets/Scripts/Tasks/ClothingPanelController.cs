@@ -20,9 +20,18 @@ namespace Spine.Unity
         private void SetupOptions()
         {
             var opts = task.options;
-            option1.Setup(opts.Count > 0 ? opts[0] : null, task.premiumIndex == 0);
-            option2.Setup(opts.Count > 1 ? opts[1] : null, task.premiumIndex == 1);
-            option3.Setup(opts.Count > 2 ? opts[2] : null, task.premiumIndex == 2);
+            var item1 = opts.Count > 0 ? opts[0] : null;
+            var item2 = opts.Count > 1 ? opts[1] : null;
+            var item3 = opts.Count > 2 ? opts[2] : null;
+
+            // Xác định premium dựa trên giá Gems của từng item (fallback về premiumIndex nếu chưa cấu hình giá)
+            bool isPremium1 = item1 != null ? item1.gemsPrice > 0 : task.premiumIndex == 0;
+            bool isPremium2 = item2 != null ? item2.gemsPrice > 0 : task.premiumIndex == 1;
+            bool isPremium3 = item3 != null ? item3.gemsPrice > 0 : task.premiumIndex == 2;
+
+            option1.Setup(item1, isPremium1);
+            option2.Setup(item2, isPremium2);
+            option3.Setup(item3, isPremium3);
             option1.onSelected = OnSelected;
             option2.onSelected = OnSelected;
             option3.onSelected = OnSelected;
@@ -31,18 +40,7 @@ namespace Spine.Unity
         private void OnSelected(FashionItemSO item, bool isPremium)
         {
             if (item == null) return;
-            if (isPremium)
-            {
-                // require gems
-                if (InitScript.Gems < item.gemsPrice)
-                {
-                    // TODO: show gems shop
-                    return;
-                }
-                InitScript.Instance.SpendGems(item.gemsPrice);
-            }
-
-            // purchase and equip
+            // Mua bằng hệ thống Inventory (đã xử lý cả coins/gems) và chỉ equip khi mua thành công hoặc đã sở hữu
             var inv = InventoryManager.Instance;
             if (inv == null)
             {
@@ -53,10 +51,15 @@ namespace Spine.Unity
                 Debug.LogError("InventoryManager instance not found in scene.");
                 return;
             }
-            inv.Purchase(item);
+            bool purchasedOrOwned = inv.HasItem(item.id) || inv.Purchase(item);
+            if (!purchasedOrOwned)
+            {
+                // TODO: feedback UI không đủ tiền/gems
+                return;
+            }
             inv.Equip(item);
 
-            if (panelRoot != null) panelRoot.SetActive(false);
+            // if (panelRoot != null) panelRoot.SetActive(false);
         }
     }
 }

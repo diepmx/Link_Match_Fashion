@@ -17,22 +17,22 @@ namespace JuiceFresh.Scripts.System
             else if(THIS != this) Destroy(gameObject);
         }
 
-        public void CheckInternet(bool showPopup, Action<bool> result=null)
-        {
-            StartCoroutine(_CheckInternet(showPopup, result));
-        }
-        IEnumerator _CheckInternet(bool showPopup, Action<bool> result=null)
-        {
-            WWW www = new WWW("https://85.119.150.22/gettime.php");
-            yield return www;
-            if (www.text == "")
-            {
-                if(showPopup)                
-                    Instantiate(Resources.Load<GameObject>("Popups/NoInternet"), GameObject.Find
-                    ("CanvasGlobal").transform);
-                result?.Invoke(false);
-            }
-            else result?.Invoke(true);
-        }
+        //public void CheckInternet(bool showPopup, Action<bool> result=null)
+        //{
+        //    StartCoroutine(_CheckInternet(showPopup, result));
+        //}
+        //IEnumerator _CheckInternet(bool showPopup, Action<bool> result=null)
+        //{
+        //    WWW www = new WWW("https://85.119.150.22/gettime.php");
+        //    yield return www;
+        //    if (www.text == "")
+        //    {
+        //        if(showPopup)                
+        //            Instantiate(Resources.Load<GameObject>("Popups/NoInternet"), GameObject.Find
+        //            ("CanvasGlobal").transform);
+        //        result?.Invoke(false);
+        //    }
+        //    else result?.Invoke(true);
+        //}
     }
 }

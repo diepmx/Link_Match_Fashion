@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: cape-blue
   skeletonDataAsset: {fileID: 11400000, guid: 91a60be3ea058c245b89efb440a49a58, type: 2}
   slot: 2
-  skinKey: accessories/scarf
+  skinKey: accessories/backpack
   coinsPrice: 0
   gemsPrice: 0
   icon: {fileID: 21300000, guid: 8716d5fd1fecd4b4780ac9140f75e4c7, type: 3}
