@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using Ink.Runtime;
-
+using UnityEngine.SceneManagement; // nhớ thêm ở đầu file
 public class StoryController : MonoBehaviour
 {
     [Header("Scene Refs")]
@@ -24,6 +24,9 @@ public class StoryController : MonoBehaviour
     private CharacterView previous = null;
     private Coroutine typingCo;
     private bool typing;
+    [Header("Choice UI")]
+    public Transform choicesContainer;     // nơi chứa các button
+    public GameObject choiceButtonPrefab;  // prefab của choice button
 
     void Start()
     {
@@ -105,13 +108,45 @@ public class StoryController : MonoBehaviour
                 Debug.Log($"[{i}] {inkStory.currentChoices[i].text}");
             }
 
-            // Tạm thời tự chọn lựa chọn đầu tiên
-            inkStory.ChooseChoiceIndex(0);
-            Next();
+            DisplayChoices();
+
         }
         else
         {
             EndSequence();
+        }
+    }
+    void DisplayChoices()
+    {
+        // Xóa các button cũ
+        foreach (Transform child in choicesContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // Tạo button cho từng choice
+        for (int i = 0; i < inkStory.currentChoices.Count; i++)
+        {
+            var choice = inkStory.currentChoices[i];
+            GameObject buttonObj = Instantiate(choiceButtonPrefab, choicesContainer);
+            var buttonText = buttonObj.GetComponentInChildren<TextMeshProUGUI>();
+            buttonText.text = choice.text;
+
+            int choiceIndex = i; // tránh lỗi delegate capture
+            buttonObj.GetComponent<Button>().onClick.AddListener(() =>
+            {
+                inkStory.ChooseChoiceIndex(choiceIndex);
+                ClearChoices();
+                Next();
+            });
+        }
+    }
+
+    void ClearChoices()
+    {
+        foreach (Transform child in choicesContainer)
+        {
+            Destroy(child.gameObject);
         }
     }
 
@@ -144,6 +179,6 @@ public class StoryController : MonoBehaviour
     {
         if (char1.gameObject.activeSelf) char1.Exit();
         if (char2.gameObject.activeSelf) char2.Exit();
-        Debug.Log("Hết Ink Story!");
+        SceneManager.LoadScene("dressup");
     }
 }

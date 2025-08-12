@@ -5,12 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/JuiceFresh/Scenes/main.unity
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/JuiceFresh/Scenes/game.unity
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/storytelling.unity
+    guid: f608d9aabb6927d4ca2ad01555ffd006
   - enabled: 1
     path: Assets/Scenes/dressup.unity
     guid: 2cda990e2423bbf4892e6590ba056729
