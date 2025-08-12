@@ -43,8 +43,18 @@ namespace Spine.Unity
             }
 
             // purchase and equip
-            InventoryManager.Instance.Purchase(item);
-            InventoryManager.Instance.Equip(item);
+            var inv = InventoryManager.Instance;
+            if (inv == null)
+            {
+                inv = FindObjectOfType<InventoryManager>();
+            }
+            if (inv == null)
+            {
+                Debug.LogError("InventoryManager instance not found in scene.");
+                return;
+            }
+            inv.Purchase(item);
+            inv.Equip(item);
 
             if (panelRoot != null) panelRoot.SetActive(false);
         }

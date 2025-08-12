@@ -159,7 +159,13 @@ public class InitScript : MonoBehaviour
     void Awake()
     {
         Application.targetFrameRate = 60;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
         RestLifeTimer = PlayerPrefs.GetFloat("RestLifeTimer");
         //		if (Application.isEditor)//TODO comment it
         //			PlayerPrefs.DeleteAll ();
@@ -196,15 +202,32 @@ public class InitScript : MonoBehaviour
             PlayerPrefs.SetInt("Lauched", 1);
             PlayerPrefs.Save();
         }
-        rate = GameObject.Find("CanvasGlobal").transform.Find("Rate").gameObject;
-        rate.SetActive(false);
+        var canvasGlobal = GameObject.Find("CanvasGlobal");
+        if (canvasGlobal != null)
+        {
+            var rateTr = canvasGlobal.transform.Find("Rate");
+            if (rateTr != null)
+            {
+                rate = rateTr.gameObject;
+                rate.SetActive(false);
+            }
+        }
         //rate.transform.SetParent(GameObject.Find("CanvasGlobal").transform);
         //rate.transform.localPosition = Vector3.zero;
         //rate.GetComponent<RectTransform>().anchoredPosition = (Resources.Load("Prefabs/Rate") as GameObject).GetComponent<RectTransform>().anchoredPosition;
         //rate.transform.localScale = Vector3.one;
         gameObject.AddComponent<InternetChecker>();
-        GameObject.Find("Music").GetComponent<AudioSource>().volume = PlayerPrefs.GetInt("Music");
-        SoundBase.Instance.GetComponent<AudioSource>().volume = PlayerPrefs.GetInt("Sound");
+        var musicObj = GameObject.Find("Music");
+        if (musicObj != null)
+        {
+            var musicAudio = musicObj.GetComponent<AudioSource>();
+            if (musicAudio != null) musicAudio.volume = PlayerPrefs.GetInt("Music");
+        }
+        if (SoundBase.Instance != null)
+        {
+            var snd = SoundBase.Instance.GetComponent<AudioSource>();
+            if (snd != null) snd.volume = PlayerPrefs.GetInt("Sound");
+        }
 #if UNITY_ADS//1.3
         enableUnityAds = false; // Tắt Unity Ads
         //var unityAds = Resources.Load<UnityAdsID>("UnityAdsID");
@@ -250,11 +273,19 @@ public class InitScript : MonoBehaviour
 #else
         enableGoogleMobileAds = false; //1.3
 #endif
-        Transform canvas = GameObject.Find("CanvasGlobal").transform;
-        foreach (Transform item in canvas)
+        if (canvasGlobal != null)
         {
-            item.gameObject.SetActive(false);
+            Transform canvas = canvasGlobal.transform;
+            foreach (Transform item in canvas)
+            {
+                item.gameObject.SetActive(false);
+            }
         }
+
+        // Notify HUDs on first scene regardless of load order
+        OnCoinsChanged?.Invoke(Coins);
+        OnGemsChanged?.Invoke(Gems);
+        OnEnergyChanged?.Invoke(Energy);
     }
 #if GOOGLE_MOBILE_ADS
 	
@@ -280,6 +311,12 @@ public class InitScript : MonoBehaviour
                 SaveLevelStarsCount(i, 1);
             }
 
+        }
+
+        // Debug: press 'C' to add 1 coin for quick testing
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            AddCoins(10);
         }
     }
 
@@ -589,6 +626,12 @@ public class InitScript : MonoBehaviour
 		NetworkManager.dataManager.SetBoosterData ();
 #endif
 
+    }
+
+    // Exposed for wiring to a temporary UI Button in the editor
+    public void DebugAddOneCoin()
+    {
+        AddCoins(1);
     }
     //void ReloadBoosts()
     //{
