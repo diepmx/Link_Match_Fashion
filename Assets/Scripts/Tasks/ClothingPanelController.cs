@@ -58,6 +58,13 @@ namespace Spine.Unity
                 return;
             }
             inv.Equip(item);
+            
+            // Award dressup XP for completing selection
+            var levelSys = DressupLevelSystem.Instance ? DressupLevelSystem.Instance : FindObjectOfType<DressupLevelSystem>();
+            if (levelSys != null)
+            {
+                levelSys.AddExperience(20);
+            }
 
             // if (panelRoot != null) panelRoot.SetActive(false);
         }
