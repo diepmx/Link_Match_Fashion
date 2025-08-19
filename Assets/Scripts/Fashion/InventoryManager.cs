@@ -48,11 +48,9 @@ public class InventoryManager : MonoBehaviour
         if (item == null) return false;
         if (HasItem(item.id)) return true;
 
-        if (item.coinsPrice > 0)
-        {
-            if (!InitScript.Instance.SpendCoins(item.coinsPrice)) return false;
-        }
-        else if (item.gemsPrice > 0)
+        // Clothing panel only handles Gems spending for premium choices.
+        // Coins are not used here for tasks; task stars cost is handled by TaskPanel.
+        if (item.gemsPrice > 0)
         {
             if (InitScript.Gems < item.gemsPrice) return false;
             InitScript.Instance.SpendGems(item.gemsPrice);

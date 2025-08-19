@@ -1362,11 +1362,20 @@ public class LevelManager : MonoBehaviour
 		//        GameObject.Find("Canvas").transform.Find("PreCompleteBanner").gameObject.SetActive(true);
 		//        yield return new WaitForSeconds(3);
 		//        GameObject.Find("Canvas").transform.Find("PreCompleteBanner").gameObject.SetActive(false);
-		if (PlayerPrefs.GetInt(string.Format("Level.{0:000}.StarsCount", currentLevel), 0) < stars)
+		int oldStarsValue = PlayerPrefs.GetInt(string.Format("Level.{0:000}.StarsCount", currentLevel), 0);
+		if (oldStarsValue < stars)
 			PlayerPrefs.SetInt(string.Format("Level.{0:000}.StarsCount", currentLevel), stars);
 		if (Score > PlayerPrefs.GetInt("Score" + currentLevel))
 		{
 			PlayerPrefs.SetInt("Score" + currentLevel, Score);
+		}
+
+		// Award Stars currency once per unique star earned (prevent farming)
+		int previousStars = oldStarsValue;
+		int deltaStars = Mathf.Max(0, stars - previousStars);
+		if (deltaStars > 0 && InitScript.Instance != null)
+		{
+			InitScript.Instance.AddStars(deltaStars);
 		}
 		LevelsMap.SetActive(false);//1.4.4
 		LevelsMap.SetActive(true);//1.4.4
@@ -1381,6 +1390,14 @@ public class LevelManager : MonoBehaviour
 		if (coinReward > 0)
 		{
 			InitScript.Instance.AddCoins(coinReward);
+		}
+
+		// Update MaxLevelReached to block replay farming and open next level only
+		int maxLevelReached = PlayerPrefs.GetInt("MaxLevelReached", 1);
+		if (currentLevel >= maxLevelReached)
+		{
+			PlayerPrefs.SetInt("MaxLevelReached", currentLevel + 1);
+			PlayerPrefs.Save();
 		}
 
 		gameStatus = GameState.Win;

@@ -114,6 +114,8 @@ public class InitScript : MonoBehaviour
     // Currency: Coins for purchasing fashion items
     public static int Coins;
     public static event Action<int> OnCoinsChanged;
+    // Stars currency for tasks/story progression
+    public static event Action<int> OnStarsChanged;
     public static int waitedPurchaseGems;
     private int BoostExtraMoves;
     private int BoostPackages;
@@ -286,6 +288,7 @@ public class InitScript : MonoBehaviour
         OnCoinsChanged?.Invoke(Coins);
         OnGemsChanged?.Invoke(Gems);
         OnEnergyChanged?.Invoke(Energy);
+        OnStarsChanged?.Invoke(PlayerPrefs.GetInt("Stars", 0));
     }
 #if GOOGLE_MOBILE_ADS
 	
@@ -542,6 +545,33 @@ public class InitScript : MonoBehaviour
         OnCoinsChanged?.Invoke(Coins);
     }
 
+    // Stars API
+    public int GetStars()
+    {
+        return PlayerPrefs.GetInt("Stars", 0);
+    }
+
+    public void AddStars(int amount)
+    {
+        if (amount <= 0) return;
+        int stars = GetStars() + amount;
+        PlayerPrefs.SetInt("Stars", stars);
+        PlayerPrefs.Save();
+        OnStarsChanged?.Invoke(stars);
+    }
+
+    public bool SpendStars(int amount)
+    {
+        if (amount <= 0) return true;
+        int stars = GetStars();
+        if (stars < amount) return false;
+        stars -= amount;
+        PlayerPrefs.SetInt("Stars", stars);
+        PlayerPrefs.Save();
+        OnStarsChanged?.Invoke(stars);
+        return true;
+    }
+
     public void AddCoins(int count)
     {
         Coins += Mathf.Max(0, count);
@@ -692,7 +722,16 @@ public class InitScript : MonoBehaviour
             return;
         if (!GameObject.Find("CanvasGlobal").transform.Find("MenuPlay").gameObject.activeSelf && !GameObject.Find("CanvasGlobal").transform.Find("GemsShop").gameObject.activeSelf && !GameObject.Find("CanvasGlobal").transform.Find("LiveShop").gameObject.activeSelf)
         {
-            PlayerPrefs.SetInt("OpenLevel", args.Number);
+            // Block replaying older levels: only allow starting the next unopened level
+            int maxLevelReached = PlayerPrefs.GetInt("MaxLevelReached", 1);
+            int target = args.Number;
+            if (target < maxLevelReached)
+            {
+                // Ignore clicks on completed levels
+                Debug.Log("Level already completed. Replay disabled.");
+                return;
+            }
+            PlayerPrefs.SetInt("OpenLevel", target);
             PlayerPrefs.Save();
             LevelManager.THIS.MenuPlayEvent();
             LevelManager.THIS.LoadLevel();

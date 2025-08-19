@@ -40,7 +40,7 @@ namespace Spine.Unity
         private void OnSelected(FashionItemSO item, bool isPremium)
         {
             if (item == null) return;
-            // Mua bằng hệ thống Inventory (đã xử lý cả coins/gems) và chỉ equip khi mua thành công hoặc đã sở hữu
+            // Only handle Gems here (premium). Coins are not used; stars were already spent in TaskPanel.
             var inv = InventoryManager.Instance;
             if (inv == null)
             {

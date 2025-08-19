@@ -25,15 +25,25 @@ public class TaskPanelController : MonoBehaviour
     private void UpdateInteractable()
     {
         if (taskButton == null) return;
-        taskButton.interactable = !unlocked && InitScript.Coins >= task.coinCost;
+        // Task panel uses Stars currency (not Coins)
+        int requiredStars = Mathf.Max(0, task != null ? task.starsCost : 0);
+        taskButton.interactable = !unlocked && PlayerPrefs.GetInt("Stars", 0) >= requiredStars;
     }
 
     private void OnClickTask()
     {
         if (unlocked) return;
-        if (!InitScript.Instance.SpendCoins(task.coinCost))
+        int requiredStars = Mathf.Max(0, task != null ? task.starsCost : 0);
+        // Spend Stars instead of Coins
+        var init = InitScript.Instance;
+        if (init == null)
         {
-            // TODO: flash not enough coins UI
+            Debug.LogError("InitScript instance not found.");
+            return;
+        }
+        if (!init.SpendStars(requiredStars))
+        {
+            // TODO: feedback UI: not enough stars
             return;
         }
         unlocked = true;
