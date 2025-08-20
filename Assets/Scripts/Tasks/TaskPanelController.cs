@@ -8,6 +8,7 @@ public class TaskPanelController : MonoBehaviour
     [SerializeField] private GameObject panelClothing; // assign Clothing panel root
 
     private bool unlocked;
+    private static TaskPanelController currentInstance;
 
     private void Awake()
     {
@@ -27,6 +28,36 @@ public class TaskPanelController : MonoBehaviour
     private void OnDisable()
     {
         InitScript.OnStarsChanged -= OnStarsChanged;
+    }
+
+    // Static method để InkStoryController có thể gọi
+    public static void OpenTask(string taskId)
+    {
+        // Tìm và mở task panel tương ứng
+        var taskPanel = FindObjectOfType<TaskPanelController>();
+        if (taskPanel != null)
+        {
+            currentInstance = taskPanel;
+            taskPanel.LoadTask(taskId);
+        }
+        else
+        {
+            Debug.LogError($"[TaskPanelController] No TaskPanelController found in scene for task: {taskId}");
+        }
+    }
+
+    private void LoadTask(string taskId)
+    {
+        // TODO: Load task data từ ScriptableObject dựa trên taskId
+        // Hiện tại dùng task đã assign sẵn
+        Debug.Log($"[TaskPanelController] Loading task: {taskId}");
+        gameObject.SetActive(true);
+        
+        // Chuyển sang Task Selection mode
+        if (GameFlowManager.Instance != null)
+        {
+            GameFlowManager.Instance.ChangeState(GameFlowState.TaskSelection);
+        }
     }
 
     private void UpdateInteractable()
@@ -79,6 +110,12 @@ public class TaskPanelController : MonoBehaviour
 
     private void OpenClothingPanel()
     {
+        // Chuyển sang Dressup Mode
+        if (GameFlowManager.Instance != null)
+        {
+            GameFlowManager.Instance.ChangeState(GameFlowState.DressupMode);
+        }
+
         if (panelClothing != null)
         {
             panelClothing.SetActive(true);

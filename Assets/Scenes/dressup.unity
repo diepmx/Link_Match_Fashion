@@ -735,7 +735,7 @@ GameObject:
   - component: {fileID: 70522969}
   - component: {fileID: 70522970}
   m_Layer: 5
-  m_Name: Start
+  m_Name: Star
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1984,7 +1984,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1630253250}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: OptimizeSkin
         m_Mode: 1
@@ -2398,7 +2398,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1630253250}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: PrevEyesSkin
         m_Mode: 1
@@ -3597,6 +3597,179 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682768269}
   m_CullTransparentMesh: 1
+--- !u!1 &684038063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 684038069}
+  - component: {fileID: 684038068}
+  - component: {fileID: 684038067}
+  - component: {fileID: 684038066}
+  - component: {fileID: 684038065}
+  - component: {fileID: 684038064}
+  m_Layer: 0
+  m_Name: Spine GameObject (pose_anim)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &684038064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684038063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5143aabb974aa744b9aa407396ba529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catalog: []
+  matchSkins: {fileID: 684038065}
+--- !u!114 &684038065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684038063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a66492fdefc494b8399943a0f9b250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSkin: skin-base
+  eyelidsSkin: eyelids/girly
+  hairSkins:
+  - hair/brown
+  - hair/blue
+  - hair/pink
+  - hair/short-red
+  - hair/long-blue-with-scarf
+  activeHairIndex: 0
+  eyesSkins:
+  - eyes/violet
+  - eyes/green
+  - eyes/yellow
+  activeEyesIndex: 0
+  noseSkins:
+  - nose/short
+  - nose/long
+  activeNoseIndex: 0
+  clothesSkin: clothes/hoodie-orange
+  pantsSkin: legs/pants-jeans
+  bagSkin: 
+  hatSkin: accessories/hat-red-yellow
+  runtimeMaterial: {fileID: 0}
+  runtimeAtlas: {fileID: 0}
+--- !u!114 &684038066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684038063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonDataAsset: {fileID: 11400000, guid: 6723f59b0cd79f74bbe366267f179db8, type: 2}
+  initialSkinName: 
+  initialFlipX: 0
+  initialFlipY: 0
+  updateWhenInvisible: 3
+  separatorSlotNames: []
+  zSpacing: 0
+  useClipping: 1
+  immutableTriangles: 0
+  pmaVertexColors: 1
+  clearStateOnDisable: 0
+  tintBlack: 0
+  singleSubmesh: 0
+  fixDrawOrder: 0
+  addNormals: 0
+  calculateTangents: 0
+  maskInteraction: 0
+  maskMaterials:
+    materialsMaskDisabled: []
+    materialsInsideMask: []
+    materialsOutsideMask: []
+  disableRenderingOnOverride: 1
+  _animationName: idle_1
+  loop: 1
+  timeScale: 1
+--- !u!23 &684038067
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684038063}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1426a0ee523006f4db6c095d054fc9df, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &684038068
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684038063}
+  m_Mesh: {fileID: 0}
+--- !u!4 &684038069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684038063}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.95, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &698316842
 GameObject:
   m_ObjectHideFlags: 0
@@ -3816,7 +3989,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1630253250}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: PrevNoseSkin
         m_Mode: 1
@@ -5206,16 +5379,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925176512}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.08546719, w: 0.996341}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.68, y: 1.68, z: 1.68}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 70522967}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -9.806}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -96, y: -40}
+  m_AnchoredPosition: {x: -96.00002, y: -33.750042}
   m_SizeDelta: {x: 51, y: 51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &925176514
@@ -5238,7 +5411,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aba88f417d8e65546992823acb7d1c09, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 42b892b400d64f148a3bc80cc87690f7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7900,7 +8073,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1630253250}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: NextEyesSkin
         m_Mode: 1
@@ -8125,7 +8298,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1630253250}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: NextHairSkin
         m_Mode: 1
@@ -9644,51 +9817,13 @@ GameObject:
   - component: {fileID: 1630253253}
   - component: {fileID: 1630253252}
   - component: {fileID: 1630253251}
-  - component: {fileID: 1630253250}
-  - component: {fileID: 1630253255}
   m_Layer: 0
   m_Name: Character (mix-and-match-pro)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1630253250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1630253249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a66492fdefc494b8399943a0f9b250, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseSkin: skin-base
-  eyelidsSkin: eyelids/girly
-  hairSkins:
-  - hair/brown
-  - hair/blue
-  - hair/pink
-  - hair/short-red
-  - hair/long-blue-with-scarf
-  activeHairIndex: 0
-  eyesSkins:
-  - eyes/violet
-  - eyes/green
-  - eyes/yellow
-  activeEyesIndex: 0
-  noseSkins:
-  - nose/short
-  - nose/long
-  activeNoseIndex: 0
-  clothesSkin: clothes/hoodie-orange
-  pantsSkin: legs/pants-jeans
-  bagSkin: 
-  hatSkin: accessories/hat-red-yellow
-  runtimeMaterial: {fileID: 0}
-  runtimeAtlas: {fileID: 0}
+  m_IsActive: 0
 --- !u!114 &1630253251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9791,20 +9926,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1630253255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1630253249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5143aabb974aa744b9aa407396ba529, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  catalog: []
-  matchSkins: {fileID: 1630253250}
 --- !u!1 &1699016654
 GameObject:
   m_ObjectHideFlags: 0
@@ -11270,7 +11391,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1630253250}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: NextNoseSkin
         m_Mode: 1
@@ -12372,3 +12493,4 @@ SceneRoots:
   - {fileID: 744043038}
   - {fileID: 573197105}
   - {fileID: 435096504}
+  - {fileID: 684038069}

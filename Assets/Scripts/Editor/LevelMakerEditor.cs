@@ -97,22 +97,41 @@ public class LevelMakerEditor : EditorWindow
 		if (maxCols <= 0)
 			maxCols = 7;
 
-		if (Camera.main == null)
-			return;
-		lm = Camera.main.GetComponent<LevelManager>();
+		// Try to resolve LevelManager reliably (Camera.main may be null or not hold the component)
+		var mainCam = Camera.main;
+		lm = mainCam != null ? mainCam.GetComponent<LevelManager>() : null;
+		if (lm == null)
+		{
+			lm = FindObjectOfType<LevelManager>();
+		}
 		if (lm != null)
 		{
-			initscript = Camera.main.GetComponent<InitScript>();
-			ingr = initscript.collectedIngredients.ToArray();
+			// Resolve InitScript safely (it might be on a different GameObject)
+			initscript = null;
+			if (mainCam != null)
+			{
+				initscript = mainCam.GetComponent<InitScript>();
+			}
+			if (initscript == null)
+			{
+				// Prefer singleton if available
+				initscript = (InitScript.Instance != null) ? InitScript.Instance : FindObjectOfType<InitScript>();
+			}
+
+			// Guard against null before accessing collectedIngredients
+			if (initscript != null && initscript.collectedIngredients != null)
+			{
+				ingr = initscript.collectedIngredients.ToArray();
+			}
 			Initialize();
 			unityAdsSettings = Resources.Load<UnityAdsID>("UnityAdsID");
 			LoadDataFromLocal(levelNumber);
 		}
-		if (EditorSceneManager.GetActiveScene().name == "game")
+		if (EditorSceneManager.GetActiveScene().name == "game" && lm != null)
 		{
-			NumIngredients = lm.NumIngredients;
+			NumIngredients = lm != null ? lm.NumIngredients : 0;
 
-			if (oldList == null)
+			if (oldList == null && initscript != null && initscript.adsEvents != null)
 			{
 				oldList = new List<AdEvents>();
 				oldList.Clear();
@@ -133,14 +152,35 @@ public class LevelMakerEditor : EditorWindow
 			//solidBlockTex = Resources.Load("Blocks/solidBlock") as Texture;
 			//undestroyableBlockTex = Resources.Load("Blocks/undestroyable") as Texture;
 			//thrivingBlockTex = Resources.Load("Blocks/thriving_block") as Texture;
-			squareTex = lm.squarePrefab.GetComponent<SpriteRenderer>().sprite.texture;
-			blockTex = lm.blockPrefab.GetComponent<SpriteRenderer>().sprite.texture;
-			blockTex2 = lm.doubleBlock.texture;
-			wireBlockTex = lm.wireBlockPrefab.GetComponent<SpriteRenderer>().sprite.texture;
-			solidBlockTex = lm.solidBlockPrefab.GetComponent<SpriteRenderer>().sprite.texture;
-			doublesolidBlockTex = lm.doubleSolidBlock.texture;
+			// Assign textures defensively to avoid NREs when prefabs/components are missing
+			if (lm.squarePrefab != null)
+			{
+				var sr = lm.squarePrefab.GetComponent<SpriteRenderer>();
+				if (sr != null && sr.sprite != null) squareTex = sr.sprite.texture;
+			}
+			if (lm.blockPrefab != null)
+			{
+				var sr = lm.blockPrefab.GetComponent<SpriteRenderer>();
+				if (sr != null && sr.sprite != null) blockTex = sr.sprite.texture;
+			}
+			if (lm.doubleBlock != null) blockTex2 = lm.doubleBlock.texture;
+			if (lm.wireBlockPrefab != null)
+			{
+				var sr = lm.wireBlockPrefab.GetComponent<SpriteRenderer>();
+				if (sr != null && sr.sprite != null) wireBlockTex = sr.sprite.texture;
+			}
+			if (lm.solidBlockPrefab != null)
+			{
+				var sr = lm.solidBlockPrefab.GetComponent<SpriteRenderer>();
+				if (sr != null && sr.sprite != null) solidBlockTex = sr.sprite.texture;
+			}
+			if (lm.doubleSolidBlock != null) doublesolidBlockTex = lm.doubleSolidBlock.texture;
 			//undestroyableBlockTex = lm.undesroyableBlockPrefab.GetComponent<SpriteRenderer>().sprite.texture;
-			thrivingBlockTex = lm.thrivingBlockPrefab.GetComponent<SpriteRenderer>().sprite.texture;
+			if (lm.thrivingBlockPrefab != null)
+			{
+				var sr = lm.thrivingBlockPrefab.GetComponent<SpriteRenderer>();
+				if (sr != null && sr.sprite != null) thrivingBlockTex = sr.sprite.texture;
+			}
 		}
 	}
 
@@ -2202,7 +2242,17 @@ public class LevelMakerEditor : EditorWindow
 
 		string[] lines = mapText.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
 		int[] indexItems = new int[10];
-		ingr = initscript.collectedIngredients.ToArray();
+		// Safely populate ingredients snapshot
+		if (initscript != null && initscript.collectedIngredients != null)
+		{
+			ingr = initscript.collectedIngredients.ToArray();
+		}
+		else
+		{
+			// Keep previous size or fallback to default capacity
+			if (ingr == null || ingr.Length == 0)
+				ingr = new CollectedIngredients[4];
+		}
 		int mapLine = 0;
 		foreach (string line in lines)
 		{
@@ -2249,19 +2299,30 @@ public class LevelMakerEditor : EditorWindow
 
 				for (int i = 0; i < blocksNumbers.Length; i++)
 				{
-					if (collectItems[i] == null)
-						collectItems[i] = new CollectedItem();
+					// Parse target index safely
+					int targetIndex;
+					if (!int.TryParse(blocksNumbers[i], out targetIndex))
+						continue;
 
-					if (collectItems.Length > i)
+					// Ensure array slot exists and is initialized
+					if (targetIndex >= 0 && targetIndex < collectItems.Length)
 					{
-						collectItems[int.Parse(blocksNumbers[i])].check = true;
-						indexItems[i] = int.Parse(blocksNumbers[i]);
+						if (collectItems[targetIndex] == null)
+							collectItems[targetIndex] = new CollectedItem();
+						collectItems[targetIndex].check = true;
+						indexItems[i] = targetIndex;
 					}
 
 					if (target == Target.COLLECT)
 					{
-						if (ingr.Length > i)
-							ingr[int.Parse(blocksNumbers[i])].check = true;
+						if (ingr != null)
+						{
+							if (targetIndex >= 0 && targetIndex < ingr.Length)
+							{
+								// Mark ingredient as required
+								ingr[targetIndex].check = true;
+							}
+						}
 					}
 
 				}
@@ -2272,15 +2333,24 @@ public class LevelMakerEditor : EditorWindow
 				string[] blocksNumbers = blocksString.Split(new string[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
 				for (int i = 0; i < blocksNumbers.Length; i++)
 				{
-					if (collectItems[i] == null)
-						collectItems[i] = new CollectedItem();
+					int parsedCount;
+					if (!int.TryParse(blocksNumbers[i], out parsedCount))
+						continue;
 
-					collectItems[indexItems[i]].count = int.Parse(blocksNumbers[i]);
-
-					if (target == Target.COLLECT)
+					int mappedIndex = (i >= 0 && i < indexItems.Length) ? indexItems[i] : -1;
+					if (mappedIndex >= 0 && mappedIndex < collectItems.Length)
 					{
-						if (ingr.Length > i)
-							ingr[i].count = int.Parse(blocksNumbers[i]);
+						if (collectItems[mappedIndex] == null)
+							collectItems[mappedIndex] = new CollectedItem();
+						collectItems[mappedIndex].count = parsedCount;
+					}
+
+					if (target == Target.COLLECT && ingr != null)
+					{
+						if (i >= 0 && i < ingr.Length)
+						{
+							ingr[i].count = parsedCount;
+						}
 					}
 
 				}

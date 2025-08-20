@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Spine.Unity
-{
+namespace Spine.Unity { 
     public class ClothingPanelController : MonoBehaviour
     {
         [SerializeField] private TaskDefinitionSO task;
@@ -78,9 +77,27 @@ namespace Spine.Unity
                 levelSys.AddExperience(20);
             }
 
+            // Task completed! Notify GameFlowManager
+            CompleteTask();
+
             // if (panelRoot != null) panelRoot.SetActive(false);
         }
+
+        private void CompleteTask()
+        {
+            // Đóng panel
+            if (panelRoot != null) 
+                panelRoot.SetActive(false);
+
+            // Thông báo task hoàn thành
+            if (GameFlowManager.Instance != null)
+            {
+                GameFlowManager.Instance.CompleteTask(task != null ? task.taskId : "unknown");
+                GameFlowManager.Instance.ReturnToStory();
+            }
+        }
+        }
     }
-}
+
 
 
