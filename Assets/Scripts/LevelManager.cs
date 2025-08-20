@@ -1310,7 +1310,7 @@ public class LevelManager : MonoBehaviour
 	IEnumerator PreWinAnimationsCor()
 	{
 		if (!InitScript.Instance.losingLifeEveryGame)
-			InitScript.Instance.AddLife(1);
+			InitScript.Instance.AddEnergy(InitScript.Instance.EnergyCostPerPlay);
 		SoundBase.Instance.PlaySound(SoundBase.Instance.complete[1]);
 		GameObject.Find("Level/Canvas").transform.Find("PreCompleteBanner").gameObject.SetActive(true);//1.4.5
 		yield return new WaitForSeconds(3);
@@ -2432,6 +2432,12 @@ public class LevelManager : MonoBehaviour
 				LevelManager.THIS.nextExtraItems = destroyAnyway.Count / (int)extraItemEvery;
 			}
 			int destroyArrayCount = destroyAnyway.Count;
+			// Link-match path: if no combinedItems were processed, promote a CHOCOBOMB on 5+ chain
+			if ((combinedItems == null || combinedItems.Count == 0) && lastDraggedItem == null && destroyArrayCount >= 5)
+			{
+				lastDraggedItem = destroyAnyway[UnityEngine.Random.Range(0, destroyArrayCount)];
+				lastDraggedItem.nextType = ItemsTypes.CHOCOBOMB;
+			}
 			int iCounter = 0;
 			foreach (Item item in destroyAnyway)
 			{

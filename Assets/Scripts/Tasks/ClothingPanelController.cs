@@ -10,9 +10,21 @@ namespace Spine.Unity
         [SerializeField] private ClothingOptionUI option2;
         [SerializeField] private ClothingOptionUI option3;
         [SerializeField] private GameObject panelRoot;
+        [SerializeField] private bool guardUnlock = true; // prevent opening unless task unlocked via stars
 
         private void OnEnable()
         {
+            if (guardUnlock && task != null && !string.IsNullOrEmpty(task.taskId))
+            {
+                int unlocked = PlayerPrefs.GetInt($"TaskUnlocked:{task.taskId}", 0);
+                if (unlocked == 0)
+                {
+                    // Block accidental open if not unlocked (e.g. via inspector onClick)
+                    if (panelRoot != null) panelRoot.SetActive(false);
+                    gameObject.SetActive(false);
+                    return;
+                }
+            }
             if (task == null) return;
             SetupOptions();
         }
