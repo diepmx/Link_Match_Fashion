@@ -1,0 +1,27 @@
+
+skeleton.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect_spirit
+  rotate: true
+  xy: 2, 2
+  size: 839, 835
+  orig: 900, 900
+  offset: 27, 32
+  index: -1
+lightrays
+  rotate: false
+  xy: 2, 843
+  size: 1005, 1006
+  orig: 1083, 1086
+  offset: 38, 48
+  index: -1
+particular
+  rotate: true
+  xy: 839, 233
+  size: 608, 565
+  orig: 663, 642
+  offset: 42, 31
+  index: -1

@@ -5597,6 +5597,77 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226301630}
   m_CullTransparentMesh: 0
+--- !u!1 &229323218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 229323220}
+  - component: {fileID: 229323219}
+  m_Layer: 3
+  m_Name: InitScript_Editor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &229323219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229323218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b04bb4abd8356e04894093fdaaa1805b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectedIngredients: []
+  currentReward: 0
+  CapOfLife: 5
+  EnergyMax: 5
+  EnergyCostPerPlay: 1
+  TotalTimeForRestLifeHours: 0
+  TotalTimeForRestLifeMin: 15
+  TotalTimeForRestLifeSec: 60
+  FirstGems: 20
+  adsEvents: []
+  enableUnityAds: 0
+  enableGoogleMobileAds: 0
+  enableChartboostAds: 0
+  rewardedVideoZone: 
+  nonRewardedVideoZone: 
+  ShowChartboostAdsEveryLevel: 0
+  ShowAdmobAdsEveryLevel: 0
+  admobUIDAndroid: 
+  admobUIDIOS: 
+  ShowRateEvery: 0
+  RateURL: 
+  RateURLIOS: 
+  rewardedGems: 5
+  losingLifeEveryGame: 0
+  facebookButton: {fileID: 0}
+  admobRewardedUIDAndroid: 
+  admobRewardedUIDIOS: 
+--- !u!4 &229323220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229323218}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.33389425, y: 8.378722, z: 2.096987}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &231817006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42860,3 +42931,4 @@ SceneRoots:
   - {fileID: 17951974}
   - {fileID: 1882432574}
   - {fileID: 103394266}
+  - {fileID: 229323220}
