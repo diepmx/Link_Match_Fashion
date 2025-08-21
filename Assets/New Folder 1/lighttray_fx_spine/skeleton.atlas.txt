@@ -1,0 +1,20 @@
+
+skeleton.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Yellow_Sunbrust_Fx
+  rotate: false
+  xy: 884, 342
+  size: 476, 479
+  orig: 512, 512
+  offset: 18, 17
+  index: -1
+particular
+  rotate: false
+  xy: 2, 2
+  size: 880, 819
+  orig: 892, 828
+  offset: 6, 4
+  index: -1

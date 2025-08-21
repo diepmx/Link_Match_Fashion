@@ -1,0 +1,45 @@
+{
+"skeleton": {
+	"hash": "9VgwtIjvlIyoaan5g4yTKCVbKOg",
+	"spine": "3.8.75",
+	"x": -128,
+	"y": -128,
+	"width": 256,
+	"height": 256,
+	"images": "../New folder (12)/",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "bone", "parent": "root" }
+],
+"slots": [
+	{ "name": "T_GlowTrail_1", "bone": "bone", "attachment": "T_GlowTrail_1" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"T_GlowTrail_1": {
+				"T_GlowTrail_1": { "width": 256, "height": 256 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"bones": {
+			"bone": {
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": 645.9 },
+					{ "time": 2.6667 }
+				],
+				"scale": [
+					{ "time": 0.4333, "y": 0.527 }
+				]
+			}
+		}
+	}
+}
+}
