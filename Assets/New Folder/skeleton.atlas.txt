@@ -1,0 +1,41 @@
+
+skeleton.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Elements - Flash 012 Hit Explosion Radial noCT noRSZ 01/touch_fx_00001
+  rotate: false
+  xy: 2, 718
+  size: 430, 430
+  orig: 1000, 1000
+  offset: 285, 285
+  index: -1
+Elements - Flash 012 Hit Explosion Radial noCT noRSZ 01/touch_fx_00002
+  rotate: false
+  xy: 960, 606
+  size: 542, 542
+  orig: 1000, 1000
+  offset: 229, 229
+  index: -1
+Elements - Flash 012 Hit Explosion Radial noCT noRSZ 01/touch_fx_00003
+  rotate: false
+  xy: 434, 624
+  size: 524, 524
+  orig: 1000, 1000
+  offset: 238, 238
+  index: -1
+Elements - Flash 012 Hit Explosion Radial noCT noRSZ 01/touch_fx_00004
+  rotate: false
+  xy: 2, 50
+  size: 572, 572
+  orig: 1000, 1000
+  offset: 214, 214
+  index: -1
+Elements - Flash 012 Hit Explosion Radial noCT noRSZ 01/touch_fx_00005
+  rotate: false
+  xy: 576, 2
+  size: 602, 602
+  orig: 1000, 1000
+  offset: 199, 199
+  index: -1
