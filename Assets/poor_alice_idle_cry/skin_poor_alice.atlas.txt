@@ -1,0 +1,76 @@
+
+skin_poor_alice.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+_Alice_body_2
+  rotate: true
+  xy: 2, 2
+  size: 520, 1372
+  orig: 548, 1374
+  offset: 26, 1
+  index: -1
+left_brow
+  rotate: true
+  xy: 1376, 300
+  size: 44, 18
+  orig: 47, 20
+  offset: 2, 1
+  index: -1
+left_eyelash
+  rotate: true
+  xy: 1376, 476
+  size: 46, 28
+  orig: 50, 33
+  offset: 2, 1
+  index: -1
+left_eyes
+  rotate: true
+  xy: 1376, 399
+  size: 34, 21
+  orig: 36, 23
+  offset: 1, 1
+  index: -1
+left_eyes_ball
+  rotate: false
+  xy: 1376, 346
+  size: 19, 19
+  orig: 21, 21
+  offset: 1, 1
+  index: -1
+right_brow
+  rotate: true
+  xy: 1376, 247
+  size: 32, 16
+  orig: 34, 18
+  offset: 1, 1
+  index: -1
+right_eyelash
+  rotate: true
+  xy: 1376, 435
+  size: 39, 28
+  orig: 42, 30
+  offset: 2, 1
+  index: -1
+right_eyes
+  rotate: true
+  xy: 1376, 367
+  size: 30, 21
+  orig: 32, 23
+  offset: 1, 1
+  index: -1
+right_eyes_ball
+  rotate: false
+  xy: 1376, 281
+  size: 17, 17
+  orig: 20, 20
+  offset: 1, 2
+  index: -1
+tear
+  rotate: false
+  xy: 1376, 235
+  size: 10, 10
+  orig: 12, 12
+  offset: 1, 1
+  index: -1
