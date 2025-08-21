@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3653dc7907b0cf449a6fa22a0f13ce90, type: 3}
+  m_Name: ChapterGameData
+  m_EditorClassIdentifier: 
+  chapters:
+  - Title: "H\xF4n phu ph\u1EA3n b\u1ED9i"
+    Banner: {fileID: 21300000, guid: 13abad3ebb852c5489bd3d768f6dd1b7, type: 3}
+    lstSteps:
+    - idChapter: 1
+      FinishStep: 0
+      name: "\u0110eo t\xFAi"
+      icon: {fileID: 21300000, guid: 31ff7a4b6cde59a40a028588f18302e4, type: 3}
+      CoinBuy: 0
+      items:
+      - icon: {fileID: 21300000, guid: b57be0bb1b192cd41bbed3447914ff76, type: 3}
+        typeBuff: 0
+        quantity: 10
+      - icon: {fileID: 21300000, guid: 1447e5c86a828654d8548c13d163d23c, type: 3}
+        typeBuff: 1
+        quantity: 10
+    - idChapter: 2
+      FinishStep: 0
+      name: "\u0110eo v\xF2ng"
+      icon: {fileID: 21300000, guid: 31ff7a4b6cde59a40a028588f18302e4, type: 3}
+      CoinBuy: 0
+      items:
+      - icon: {fileID: 21300000, guid: b57be0bb1b192cd41bbed3447914ff76, type: 3}
+        typeBuff: 0
+        quantity: 10
+      - icon: {fileID: 21300000, guid: 1447e5c86a828654d8548c13d163d23c, type: 3}
+        typeBuff: 1
+        quantity: 10
