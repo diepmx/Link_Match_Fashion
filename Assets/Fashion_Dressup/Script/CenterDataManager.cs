@@ -9,6 +9,12 @@ public class CenterDataManager : Singleton<CenterDataManager>
     [SerializeField] private ChapterGameData m_ChapterGamedata;
     public GameData GameData => m_Gamedata;
     public ChapterGameData ChapterGameData => m_ChapterGamedata;
+
+    private void Start()
+    {
+        DontDestroyOnLoad(this);
+    }
+
     [Button]
     public void SaveData()
     {

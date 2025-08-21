@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ItemSteps: {fileID: 2295050375205280258}
+  m_ImageBanner: {fileID: 7540920893646916033}
 --- !u!1 &3394115201272360567
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ MonoBehaviour:
       FinishStep: 0
       name: "\u0110eo t\xFAi"
       icon: {fileID: 21300000, guid: 31ff7a4b6cde59a40a028588f18302e4, type: 3}
-      CoinBuy: 0
+      CoinBuy: 10
       items:
       - icon: {fileID: 21300000, guid: b57be0bb1b192cd41bbed3447914ff76, type: 3}
         typeBuff: 0
@@ -32,7 +32,7 @@ MonoBehaviour:
       FinishStep: 0
       name: "\u0110eo v\xF2ng"
       icon: {fileID: 21300000, guid: 31ff7a4b6cde59a40a028588f18302e4, type: 3}
-      CoinBuy: 0
+      CoinBuy: 20
       items:
       - icon: {fileID: 21300000, guid: b57be0bb1b192cd41bbed3447914ff76, type: 3}
         typeBuff: 0
