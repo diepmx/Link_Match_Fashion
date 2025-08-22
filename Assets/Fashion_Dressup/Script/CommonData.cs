@@ -51,6 +51,7 @@ public class ChapterGame
 [Serializable]
 public class Chapter
 {
+    public int id;
     public string Title;
     public Sprite Banner;
     public List<ChapterGame> lstSteps;

@@ -8,8 +8,6 @@ using UnityEngine;
 public class CollectionDatabase : ScriptableObject
 {
     public List<CollectionCategory> categories;
-
-
     [Button]
     public void ResetData()
     {

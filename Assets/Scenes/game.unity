@@ -410,7 +410,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 17951974}
-  - component: {fileID: 17951973}
   m_Layer: 0
   m_Name: InappsManager
   m_TagString: Untagged
@@ -418,18 +417,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &17951973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17951972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f097fe1aaf1137f46877fe309a5b8369, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &17951974
 Transform:
   m_ObjectHideFlags: 0
@@ -14887,8 +14874,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 635887515}
-  - component: {fileID: 635887514}
-  - component: {fileID: 635887516}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -14896,18 +14881,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &635887514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635887513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a388e59ef79492d97cac368dccf95c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &635887515
 Transform:
   m_ObjectHideFlags: 0
@@ -14923,18 +14896,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &635887516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635887513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca1390bc64bbdfc4a954c3dfa8d20406, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &638694575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28755,7 +28716,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1412542072}
-  - component: {fileID: 1412542071}
   m_Layer: 0
   m_Name: Chartboost
   m_TagString: Untagged
@@ -28763,18 +28723,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1412542071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412542070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3383cb82fbc2e49aab8618d3465e9246, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1412542072
 Transform:
   m_ObjectHideFlags: 0

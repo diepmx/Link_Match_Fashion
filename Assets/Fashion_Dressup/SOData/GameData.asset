@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 0
   totalCoins: 0
-  Energy: 100
+  Energy: 10
   TotalGem: 0
-  ChappterIndex: 0
+  CurrentChapter: 0
+  TimeRepeatEnergy: 4
+  CurrentSteps: 0
