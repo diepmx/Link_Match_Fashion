@@ -1,0 +1,111 @@
+
+Lina.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+left_elbow
+  rotate: false
+  xy: 2, 51
+  size: 140, 129
+  orig: 151, 132
+  offset: 10, 2
+  index: -1
+left_eye
+  rotate: false
+  xy: 1375, 1454
+  size: 33, 19
+  orig: 35, 21
+  offset: 1, 1
+  index: -1
+left_eye_brow
+  rotate: false
+  xy: 459, 189
+  size: 48, 17
+  orig: 51, 21
+  offset: 2, 2
+  index: -1
+left_eye_close
+  rotate: false
+  xy: 144, 162
+  size: 44, 18
+  orig: 48, 21
+  offset: 2, 2
+  index: -1
+left_eyeball
+  rotate: false
+  xy: 45, 31
+  size: 18, 18
+  orig: 20, 20
+  offset: 1, 1
+  index: -1
+left_eyelash
+  rotate: false
+  xy: 926, 223
+  size: 48, 29
+  orig: 52, 33
+  offset: 2, 3
+  index: -1
+left_hand
+  rotate: false
+  xy: 1375, 1475
+  size: 108, 84
+  orig: 115, 91
+  offset: 6, 1
+  index: -1
+lina_body
+  rotate: false
+  xy: 926, 254
+  size: 447, 1305
+  orig: 449, 1307
+  offset: 1, 1
+  index: -1
+right_eye
+  rotate: false
+  xy: 2, 2
+  size: 30, 17
+  orig: 32, 19
+  offset: 1, 1
+  index: -1
+right_eye_brow
+  rotate: false
+  xy: 976, 237
+  size: 35, 15
+  orig: 38, 17
+  offset: 1, 1
+  index: -1
+right_eye_close
+  rotate: false
+  xy: 1485, 1539
+  size: 32, 20
+  orig: 34, 22
+  offset: 1, 1
+  index: -1
+right_eyeball
+  rotate: false
+  xy: 509, 189
+  size: 17, 17
+  orig: 19, 19
+  offset: 1, 1
+  index: -1
+right_eyelash
+  rotate: false
+  xy: 2, 21
+  size: 41, 28
+  orig: 44, 32
+  offset: 2, 2
+  index: -1
+skin_1/skin_1
+  rotate: false
+  xy: 459, 208
+  size: 465, 1351
+  orig: 468, 1368
+  offset: 2, 1
+  index: -1
+skin_2/skin2
+  rotate: false
+  xy: 2, 182
+  size: 455, 1377
+  orig: 570, 1395
+  offset: 107, 2
+  index: -1
