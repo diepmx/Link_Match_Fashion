@@ -13,7 +13,94 @@ MonoBehaviour:
   m_Name: ChapterGameData
   m_EditorClassIdentifier: 
   chapters:
-  - Title: "H\xF4n phu ph\u1EA3n b\u1ED9i"
+  - Title: Shattered Anniversary
+    Banner: {fileID: 21300000, guid: 13abad3ebb852c5489bd3d768f6dd1b7, type: 3}
+    lstSteps:
+    - idChapter: 1
+      FinishStep: 0
+      name: Wash Face
+      icon: {fileID: 21300000, guid: 55771bec7c861984c8647ffa76e81bfe, type: 3}
+      CoinBuy: 10
+      items:
+      - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
+        typeBuff: 4
+        quantity: 10
+    - idChapter: 2
+      FinishStep: 0
+      name: New Suit
+      icon: {fileID: 21300000, guid: 857c7a7f8b9cad741a0bb15c5b6e00f4, type: 3}
+      CoinBuy: 10
+      items:
+      - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
+        typeBuff: 4
+        quantity: 10
+    - idChapter: 3
+      FinishStep: 0
+      name: New Bag
+      icon: {fileID: 21300000, guid: 31ff7a4b6cde59a40a028588f18302e4, type: 3}
+      CoinBuy: 10
+      items:
+      - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
+        typeBuff: 4
+        quantity: 10
+    - idChapter: 4
+      FinishStep: 0
+      name: The Reveal
+      icon: {fileID: 21300000, guid: a909bf9258bdb0b4f8eca6b4743238a4, type: 3}
+      CoinBuy: 10
+      items:
+      - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
+        typeBuff: 4
+        quantity: 10
+  - Title: 'A Deal with a Stranger '
+    Banner: {fileID: 21300000, guid: 7113510920b4b78449e53d4b5fc47850, type: 3}
+    lstSteps:
+    - idChapter: 1
+      FinishStep: 0
+      name: 'A Wedding in 24 Hours '
+      icon: {fileID: 21300000, guid: 2500c40b43c176b4eb5759d3525758ed, type: 3}
+      CoinBuy: 10
+      items:
+      - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
+        typeBuff: 4
+        quantity: 10
+    - idChapter: 2
+      FinishStep: 0
+      name: Style Hair
+      icon: {fileID: 21300000, guid: 31c4cb406340be541bae8e0cad7947a9, type: 3}
+      CoinBuy: 10
+      items:
+      - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
+        typeBuff: 4
+        quantity: 10
+    - idChapter: 3
+      FinishStep: 0
+      name: Apply Face Mask
+      icon: {fileID: 21300000, guid: 36528003e5070c04e9bb40b9b75f9891, type: 3}
+      CoinBuy: 10
+      items:
+      - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
+        typeBuff: 4
+        quantity: 10
+    - idChapter: 4
+      FinishStep: 0
+      name: Remove Underarm Hair
+      icon: {fileID: 21300000, guid: 58d826e99ed1bd4448ca927ffe60b2be, type: 3}
+      CoinBuy: 10
+      items:
+      - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
+        typeBuff: 4
+        quantity: 10
+    - idChapter: 5
+      FinishStep: 0
+      name: 'New Dress '
+      icon: {fileID: 21300000, guid: 0d3eaa8d3924c1540a91e2c3f3592564, type: 3}
+      CoinBuy: 20
+      items:
+      - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
+        typeBuff: 4
+        quantity: 10
+  - Title: 'A Wedding in 24 Hours '
     Banner: {fileID: 21300000, guid: 13abad3ebb852c5489bd3d768f6dd1b7, type: 3}
     lstSteps:
     - idChapter: 1
