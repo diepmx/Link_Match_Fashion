@@ -32,30 +32,8 @@ public class AnimationManager : MonoBehaviour
         }
         if (name == "MenuPlay")
         {
-            // LoadLevel(PlayerPrefs.GetInt("OpenLevel"));
             LevelManager.THIS.LoadLevel();
             LevelManager.THIS.CreateCollectableTarget(transform.Find("Image/TargetIngr/TargetIngr").gameObject, target);
-            // for (int i = 1; i <= 3; i++)
-            // {
-            //     transform.Find("Image").Find("Star" + i).gameObject.SetActive(false);
-            // }
-            // int stars = PlayerPrefs.GetInt(string.Format("Level.{0:000}.StarsCount", PlayerPrefs.GetInt("OpenLevel")), 0);
-            // if (stars > 0)
-            // {
-            //     for (int i = 1; i <= stars; i++)
-            //     {
-            //         transform.Find("Image").Find("Star" + i).gameObject.SetActive(true);
-            //     }
-
-            // }
-            // else
-            // {
-            //     for (int i = 1; i <= 3; i++)
-            //     {
-            //         transform.Find("Image").Find("Star" + i).gameObject.SetActive(false);
-            //     }
-
-            // }
         }
 
         if (name == "PrePlay")

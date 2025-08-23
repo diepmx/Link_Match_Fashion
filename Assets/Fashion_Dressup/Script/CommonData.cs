@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -46,11 +47,22 @@ public class ChapterGame
     public Sprite icon;
     public int CoinBuy;
     public List<RewardBuff> items;
+    public List<CharacterAnim> lstAmin;
+    public Vector3 newPositionCamera;
+}
+
+[Serializable]
+public class CharacterAnim
+{
+    public Sprite IconImage;
+    public string AnimationName;
+    public string InitialSkin;
 }
 
 [Serializable]
 public class Chapter
 {
+    public int id;
     public string Title;
     public Sprite Banner;
     public List<ChapterGame> lstSteps;

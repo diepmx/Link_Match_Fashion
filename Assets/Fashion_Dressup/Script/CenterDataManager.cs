@@ -15,6 +15,11 @@ public class CenterDataManager : Singleton<CenterDataManager>
         DontDestroyOnLoad(this);
     }
 
+    public void SaveGameData()
+    {
+        IUtil.SaveData(m_Gamedata, "GameData");
+    }
+
     [Button]
     public void SaveData()
     {

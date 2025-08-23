@@ -12,7 +12,7 @@ TagManager:
   - EditorOnly
   - Water
   - UI
-  - 
+  - playerGirl
   - 
   - Item
   - 
@@ -44,4 +44,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 58496801
+    locked: 0
+  - name: Player
+    uniqueID: 1157708951
     locked: 0
