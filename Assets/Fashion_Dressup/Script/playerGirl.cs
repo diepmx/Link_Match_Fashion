@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class playerGirl : MonoBehaviour
 {
-    [SerializeField] private SkeletonGraphic m_SkeletonPlayerGirl;
+    [SerializeField] private SkeletonAnimation m_SkeletonPlayerGirl;
 
     public void Setdata(SkeletonDataAsset dataAsset, string initialSkinName, string AnimationName = "animation")
     {

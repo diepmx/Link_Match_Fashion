@@ -10,6 +10,9 @@ public class GameData : ScriptableObject
     public int CurrentChapter = 1;
     public float TimeRepeatEnergy = 300f;
     public int CurrentSteps = 0;
+    public string CurrentInitialName = "";
+    public string CurrentAnimationName = "";
+
     [Button]
     public void resetData()
     {
@@ -19,5 +22,7 @@ public class GameData : ScriptableObject
         TotalGem = 0;
         CurrentChapter = 1;
         CurrentSteps = 1;
+        CurrentInitialName = "";
+        CurrentAnimationName = "";
     }
 }

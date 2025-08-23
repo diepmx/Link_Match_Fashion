@@ -47,6 +47,16 @@ public class ChapterGame
     public Sprite icon;
     public int CoinBuy;
     public List<RewardBuff> items;
+    public List<CharacterAnim> lstAmin;
+    public Vector3 newPositionCamera;
+}
+
+[Serializable]
+public class CharacterAnim
+{
+    public Sprite IconImage;
+    public string AnimationName;
+    public string InitialSkin;
 }
 
 [Serializable]

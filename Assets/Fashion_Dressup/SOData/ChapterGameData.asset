@@ -26,6 +26,17 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
+      lstAmin:
+      - IconImage: {fileID: 21300000, guid: ca3fb8ba42cc0724e9d74e6d7b975b29, type: 3}
+        AnimationName: eye_blink
+        InitialSkin: skin_1
+      - IconImage: {fileID: 21300000, guid: 1b0dfea07dc254444b4d6a4e127eca2c, type: 3}
+        AnimationName: eye_blink
+        InitialSkin: skin_2
+      - IconImage: {fileID: 21300000, guid: c7363d39c5be1ed48a8a7cd89efc27b4, type: 3}
+        AnimationName: eye_blink
+        InitialSkin: skin_3
+      newPositionCamera: {x: 0, y: 0, z: 0}
     - idChapter: 2
       FinishStep: 0
       name: New Suit
@@ -35,6 +46,17 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
+      lstAmin:
+      - IconImage: {fileID: 21300000, guid: ca3fb8ba42cc0724e9d74e6d7b975b29, type: 3}
+        AnimationName: eye_blink
+        InitialSkin: skin_1
+      - IconImage: {fileID: 21300000, guid: 1b0dfea07dc254444b4d6a4e127eca2c, type: 3}
+        AnimationName: eye_blink
+        InitialSkin: skin_2
+      - IconImage: {fileID: 21300000, guid: c7363d39c5be1ed48a8a7cd89efc27b4, type: 3}
+        AnimationName: eye_blink
+        InitialSkin: skin_3
+      newPositionCamera: {x: 0, y: 0, z: 0}
     - idChapter: 3
       FinishStep: 0
       name: New Bag
@@ -44,6 +66,8 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
+      lstAmin: []
+      newPositionCamera: {x: 0, y: 0, z: 0}
     - idChapter: 4
       FinishStep: 0
       name: The Reveal
@@ -53,6 +77,8 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
+      lstAmin: []
+      newPositionCamera: {x: 0, y: 0, z: 0}
   - id: 2
     Title: 'A Deal with a Stranger '
     Banner: {fileID: 21300000, guid: 7113510920b4b78449e53d4b5fc47850, type: 3}
@@ -66,6 +92,8 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
+      lstAmin: []
+      newPositionCamera: {x: 0, y: 0, z: 0}
     - idChapter: 2
       FinishStep: 0
       name: Style Hair
@@ -75,6 +103,8 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
+      lstAmin: []
+      newPositionCamera: {x: 0, y: 0, z: 0}
     - idChapter: 3
       FinishStep: 0
       name: Apply Face Mask
@@ -84,6 +114,8 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
+      lstAmin: []
+      newPositionCamera: {x: 0, y: 0, z: 0}
     - idChapter: 4
       FinishStep: 0
       name: Remove Underarm Hair
@@ -93,6 +125,8 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
+      lstAmin: []
+      newPositionCamera: {x: 0, y: 0, z: 0}
     - idChapter: 5
       FinishStep: 0
       name: 'New Dress '
@@ -102,6 +136,8 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
+      lstAmin: []
+      newPositionCamera: {x: 0, y: 0, z: 0}
   - id: 3
     Title: 'A Wedding in 24 Hours '
     Banner: {fileID: 21300000, guid: 13abad3ebb852c5489bd3d768f6dd1b7, type: 3}
@@ -118,6 +154,8 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: 1447e5c86a828654d8548c13d163d23c, type: 3}
         typeBuff: 1
         quantity: 10
+      lstAmin: []
+      newPositionCamera: {x: 0, y: 0, z: 0}
     - idChapter: 2
       FinishStep: 0
       name: "\u0110eo v\xF2ng"
@@ -130,3 +168,5 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: 1447e5c86a828654d8548c13d163d23c, type: 3}
         typeBuff: 1
         quantity: 10
+      lstAmin: []
+      newPositionCamera: {x: 0, y: 0, z: 0}

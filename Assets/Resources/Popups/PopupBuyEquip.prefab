@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ItemSteps: {fileID: 2295050375205280258}
   m_ImageBanner: {fileID: 7540920893646916033}
+  m_txtTitle: {fileID: 229628225122120360}
 --- !u!1 &3394115201272360567
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,7 +609,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 767478256786320066}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2295050375205280258}
+        m_TargetAssemblyTypeName: ItemBuySteps, Assembly-CSharp
+        m_MethodName: BuySteps
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5255986722181931787
 GameObject:
   m_ObjectHideFlags: 0
