@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: ChapterGameData
   m_EditorClassIdentifier: 
   chapters:
-  - Title: Shattered Anniversary
+  - id: 1
+    Title: Shattered Anniversary
     Banner: {fileID: 21300000, guid: 13abad3ebb852c5489bd3d768f6dd1b7, type: 3}
     lstSteps:
     - idChapter: 1
@@ -52,7 +53,8 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
-  - Title: 'A Deal with a Stranger '
+  - id: 2
+    Title: 'A Deal with a Stranger '
     Banner: {fileID: 21300000, guid: 7113510920b4b78449e53d4b5fc47850, type: 3}
     lstSteps:
     - idChapter: 1
@@ -100,7 +102,8 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
-  - Title: 'A Wedding in 24 Hours '
+  - id: 3
+    Title: 'A Wedding in 24 Hours '
     Banner: {fileID: 21300000, guid: 13abad3ebb852c5489bd3d768f6dd1b7, type: 3}
     lstSteps:
     - idChapter: 1

@@ -1,3 +1,4 @@
+using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,10 +11,18 @@ public class DressupScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI m_txtGem;
     [SerializeField] private TextMeshProUGUI m_txtEnergy;
     [SerializeField] private TextCountDownHaveTitle m_txtCountDownHaveTitle;
-
+    [SerializeField] private playerGirl m_PlayerGirl;
     private void Start()
     {
         StartCoroutine(DelayUpdate());
+
+        SkeletonDataAsset Asset = IUtil.GetDataAsset(CenterDataManager.Instance.GameData.CurrentChapter);
+
+        if (Asset != null)
+        {
+            m_PlayerGirl.Setdata(Asset, initialSkinName: "skin_1", AnimationName: "animation");
+        }
+
         m_txtCountDownHaveTitle.SetCountDownToZeroUpdate(() =>
         {
             CenterDataManager.Instance.GameData.TimeRepeatEnergy = 300;

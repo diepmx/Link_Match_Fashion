@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8db9f300253264f8dcc1f3af2f0329, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  currentLevel: 0
+  currentLevel: 1
   totalCoins: 0
-  Energy: 10
+  Energy: 300
   TotalGem: 0
-  CurrentChapter: 0
-  TimeRepeatEnergy: 4
-  CurrentSteps: 0
+  CurrentChapter: 1
+  TimeRepeatEnergy: 185
+  CurrentSteps: 1

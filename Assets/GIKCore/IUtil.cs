@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Spine.Unity;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,12 +7,16 @@ using UnityEngine;
 
 public class IUtil
 {
+    private readonly static string FATH_SPINE = "Spine/Skin/";
+
     #region GetAsset
     public static GameObject LoadPrefabResources(string assetName, string path = "Default")
     {
         if (path.Equals("Default"))
             path = "Popups/";
         string fullPath = path + assetName;
+
+        Debug.Log(fullPath);
         GameObject prefab = Resources.Load<GameObject>(fullPath);
         if (prefab == null)
         {
@@ -131,6 +136,21 @@ public class IUtil
         {
             return value.ToString();
         }
+    }
+
+    #endregion
+
+
+    #region Get_SPINE
+
+    public static SkeletonDataAsset GetDataAsset(int index)
+    {
+        string skeletonPath = FATH_SPINE + index.ToString();
+
+        Debug.Log(skeletonPath);
+        SkeletonDataAsset[] data = Resources.LoadAll<SkeletonDataAsset>(skeletonPath);
+        if (data == null || data.Length ==0) return null;
+        return data[0];
     }
 
     #endregion

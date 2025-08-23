@@ -7,7 +7,7 @@ public class GameData : ScriptableObject
     public int totalCoins = 0;
     public int Energy = 300;
     public int TotalGem = 0;
-    public int CurrentChapter = 0;
+    public int CurrentChapter = 1;
     public float TimeRepeatEnergy = 300f;
     public int CurrentSteps = 0;
     [Button]
@@ -17,6 +17,7 @@ public class GameData : ScriptableObject
         totalCoins = 0;
         Energy = 300;
         TotalGem = 0;
-        CurrentChapter = 0;
+        CurrentChapter = 1;
+        CurrentSteps = 1;
     }
 }
