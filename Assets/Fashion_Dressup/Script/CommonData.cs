@@ -47,6 +47,7 @@ public class ChapterGame
     public Sprite icon;
     public int CoinBuy;
     public List<RewardBuff> items;
+    public TypeChange Type = TypeChange.Clothes;
     public List<CharacterAnim> lstAmin;
     public Vector3 newPositionCamera;
 }
@@ -57,6 +58,32 @@ public class CharacterAnim
     public Sprite IconImage;
     public string AnimationName;
     public string InitialSkin;
+}
+
+[Serializable]
+public class InforAmim
+{
+    public string PlayerInitialSkinName = "";
+    public string AnimationName = "";
+    public string BagInitialAnim = "";
+    public string BagAnimationName = "";
+
+    public void Reset()
+    {
+        PlayerInitialSkinName = "";
+        AnimationName = "";
+        BagInitialAnim = "";
+        BagAnimationName = "";
+    }
+}
+
+[Serializable]
+public enum TypeChange
+{
+    Clothes,
+    Bag,
+    Makeup,
+    lipstick
 }
 
 [Serializable]

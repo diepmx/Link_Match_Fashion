@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System;
 using UnityEngine.UI;
@@ -453,15 +453,28 @@ public class AnimationManager : MonoBehaviour
         else if (gameObject.name == "MenuPlay")
         {
             // Use Energy instead of Lives
-            if (InitScript.Instance.CanStart(InitScript.Instance.EnergyCostPerPlay))
+            //if (InitScript.Instance.CanStart(InitScript.Instance.EnergyCostPerPlay))
+            //{
+            //    InitScript.Instance.SpendEnergy(InitScript.Instance.EnergyCostPerPlay);
+            //    LevelManager.THIS.gameStatus = GameState.PrepareGame;
+            //    CloseMenu();
+            //}
+            //else
+            //{
+            //    BuyLifeShop();
+            //}
+
+            if (CenterDataManager.Instance.GameData.Energy > 10)
             {
+                CenterDataManager.Instance.GameData.Energy -= 10;
+                CenterDataManager.Instance.SaveGameData();
                 InitScript.Instance.SpendEnergy(InitScript.Instance.EnergyCostPerPlay);
                 LevelManager.THIS.gameStatus = GameState.PrepareGame;
                 CloseMenu();
             }
             else
             {
-                BuyLifeShop();
+                // mở luôn cái popupShop ở đây , khi nào làm xong thì nhớ
             }
 
         }
@@ -490,6 +503,7 @@ public class AnimationManager : MonoBehaviour
     public void Next()
     {
         SoundBase.Instance.PlaySound(SoundBase.Instance.click);
+        CenterDataManager.Instance.GameData.totalCoins += 20;
         CloseMenu();
     }
 

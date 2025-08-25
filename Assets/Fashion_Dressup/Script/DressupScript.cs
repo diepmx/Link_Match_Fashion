@@ -8,10 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class DressupScript : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI m_txtCoin;
-    [SerializeField] private TextMeshProUGUI m_txtGem;
-    [SerializeField] private TextMeshProUGUI m_txtEnergy;
-    [SerializeField] private TextCountDownHaveTitle m_txtCountDownHaveTitle;
     [SerializeField] private HorizontalPoolGroup m_PoolItemSelect;
     [SerializeField] private playerGirl m_PlayerGirl;
     [SerializeField] private MoveAnimation m_PanelTop;
@@ -21,32 +17,20 @@ public class DressupScript : MonoBehaviour
     private bool InitFirst = false;
     private void Start()
     {
-        StartCoroutine(DelayUpdate());
         SkeletonDataAsset Asset = IUtil.GetDataAsset(CenterDataManager.Instance.GameData.CurrentChapter);
         if (Asset != null)
         {
             m_PlayerGirl.Setdata(
                 Asset,
-                initialSkinName: string.IsNullOrEmpty(CenterDataManager.Instance.GameData.CurrentInitialName)
+                initialSkinName: string.IsNullOrEmpty(CenterDataManager.Instance.GameData.AnimPlayer.PlayerInitialSkinName)
                     ? "skin_poor_lina"
-                    : CenterDataManager.Instance.GameData.CurrentInitialName,
-                AnimationName: string.IsNullOrEmpty(CenterDataManager.Instance.GameData.CurrentAnimationName)
+                    : CenterDataManager.Instance.GameData.AnimPlayer.PlayerInitialSkinName,
+                AnimationName: string.IsNullOrEmpty(CenterDataManager.Instance.GameData.AnimPlayer.AnimationName)
                     ? "eye_blink"
-                    : CenterDataManager.Instance.GameData.CurrentAnimationName
+                    : CenterDataManager.Instance.GameData.AnimPlayer.AnimationName
             );
         }
         ShowAllPanelMain();
-        m_txtCountDownHaveTitle.SetCountDownToZeroUpdate(() =>
-        {
-            CenterDataManager.Instance.GameData.TimeRepeatEnergy = 300;
-            CenterDataManager.Instance.GameData.Energy += CenterDataManager.Instance.GameData.Energy < 10 ? 1 : 0;
-            m_txtCountDownHaveTitle.SetCountDown((long)CenterDataManager.Instance.GameData.TimeRepeatEnergy);
-
-        }).SetOffsetUpdate((Offset) =>
-        {
-            CenterDataManager.Instance.GameData.TimeRepeatEnergy = (float)Offset;
-        }).SetCountDown((long)CenterDataManager.Instance.GameData.TimeRepeatEnergy);
-
         m_PoolItemSelect.SetCellDataCallback<CharacterAnim>((go, data, index) =>
         {
             itemChooseEquip script = go.GetComponent<itemChooseEquip>();
@@ -55,8 +39,8 @@ public class DressupScript : MonoBehaviour
             {
                 m_PoolItemSelect.ReloadDataToVisibleCell();
                 script.SetSelected(true);
-                CenterDataManager.Instance.GameData.CurrentInitialName = Anim.InitialSkin;
-                CenterDataManager.Instance.GameData.CurrentAnimationName = Anim.AnimationName;
+                //CenterDataManager.Instance.GameData.CurrentInitialName = Anim.InitialSkin;
+                //CenterDataManager.Instance.GameData.CurrentAnimationName = Anim.AnimationName;
                 m_PlayerGirl.Setdata(Asset, initialSkinName: Anim.InitialSkin, AnimationName: Anim.AnimationName);
                 CenterDataManager.Instance.SaveGameData();
             }).SetData(data);
@@ -67,18 +51,6 @@ public class DressupScript : MonoBehaviour
             }
         });
     }
-
-    IEnumerator DelayUpdate()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1);
-            m_txtCoin.text = CenterDataManager.Instance.GameData.totalCoins.ToString();
-            m_txtGem.text = CenterDataManager.Instance.GameData.TotalGem.ToString();
-            m_txtEnergy.text = CenterDataManager.Instance.GameData.Energy.ToString();
-        }
-    }
-
     public void HideAllPanelMain()
     {
         m_PanelTop.Move();

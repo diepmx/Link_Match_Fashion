@@ -26,6 +26,7 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
+      Type: 0
       lstAmin:
       - IconImage: {fileID: 21300000, guid: ca3fb8ba42cc0724e9d74e6d7b975b29, type: 3}
         AnimationName: eye_blink
@@ -39,23 +40,27 @@ MonoBehaviour:
       newPositionCamera: {x: 0, y: 0, z: 0}
     - idChapter: 2
       FinishStep: 0
-      name: New Suit
+      name: new Bags
       icon: {fileID: 21300000, guid: 857c7a7f8b9cad741a0bb15c5b6e00f4, type: 3}
       CoinBuy: 10
       items:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
+      Type: 1
       lstAmin:
-      - IconImage: {fileID: 21300000, guid: ca3fb8ba42cc0724e9d74e6d7b975b29, type: 3}
+      - IconImage: {fileID: 21300000, guid: 022c5149466621c488b80f064216eaf2, type: 3}
         AnimationName: eye_blink
-        InitialSkin: skin_1
-      - IconImage: {fileID: 21300000, guid: 1b0dfea07dc254444b4d6a4e127eca2c, type: 3}
+        InitialSkin: bag_1
+      - IconImage: {fileID: 21300000, guid: 44096a2064731744cb1636f3ec228329, type: 3}
         AnimationName: eye_blink
-        InitialSkin: skin_2
-      - IconImage: {fileID: 21300000, guid: c7363d39c5be1ed48a8a7cd89efc27b4, type: 3}
+        InitialSkin: bag_2
+      - IconImage: {fileID: 21300000, guid: 64cf73a5952a3ac46bb709fb52a2413d, type: 3}
         AnimationName: eye_blink
-        InitialSkin: skin_3
+        InitialSkin: bag_3
+      - IconImage: {fileID: 21300000, guid: 162cebeea87785d47bd9fbf5fc61d307, type: 3}
+        AnimationName: eye_blink
+        InitialSkin: bag_4
       newPositionCamera: {x: 0, y: 0, z: 0}
     - idChapter: 3
       FinishStep: 0
@@ -66,6 +71,7 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
+      Type: 0
       lstAmin: []
       newPositionCamera: {x: 0, y: 0, z: 0}
     - idChapter: 4
@@ -77,6 +83,7 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
+      Type: 0
       lstAmin: []
       newPositionCamera: {x: 0, y: 0, z: 0}
   - id: 2
@@ -92,6 +99,7 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
+      Type: 0
       lstAmin: []
       newPositionCamera: {x: 0, y: 0, z: 0}
     - idChapter: 2
@@ -103,6 +111,7 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
+      Type: 0
       lstAmin: []
       newPositionCamera: {x: 0, y: 0, z: 0}
     - idChapter: 3
@@ -114,6 +123,7 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
+      Type: 0
       lstAmin: []
       newPositionCamera: {x: 0, y: 0, z: 0}
     - idChapter: 4
@@ -125,6 +135,7 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
+      Type: 0
       lstAmin: []
       newPositionCamera: {x: 0, y: 0, z: 0}
     - idChapter: 5
@@ -136,6 +147,7 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: e8efc8a2f174e8243a81f87c7c966f7c, type: 3}
         typeBuff: 4
         quantity: 10
+      Type: 0
       lstAmin: []
       newPositionCamera: {x: 0, y: 0, z: 0}
   - id: 3
@@ -154,6 +166,7 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: 1447e5c86a828654d8548c13d163d23c, type: 3}
         typeBuff: 1
         quantity: 10
+      Type: 0
       lstAmin: []
       newPositionCamera: {x: 0, y: 0, z: 0}
     - idChapter: 2
@@ -168,5 +181,6 @@ MonoBehaviour:
       - icon: {fileID: 21300000, guid: 1447e5c86a828654d8548c13d163d23c, type: 3}
         typeBuff: 1
         quantity: 10
+      Type: 0
       lstAmin: []
       newPositionCamera: {x: 0, y: 0, z: 0}

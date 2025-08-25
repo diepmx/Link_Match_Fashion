@@ -31,6 +31,7 @@ public class ItemBuySteps : MonoBehaviour
     public void BuySteps()
     {
         //if (CenterDataManager.Instance.GameData.totalCoins < character.CoinBuy) return;
+        CenterDataManager.Instance.GameData.CurrentSteps++;
         cellCallback?.Invoke(character);
     }
 }

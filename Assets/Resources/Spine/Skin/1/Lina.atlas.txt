@@ -6,141 +6,169 @@ filter: Linear,Linear
 repeat: none
 image_poor/left_eye_ball
   rotate: false
-  xy: 738, 525
+  xy: 595, 11
   size: 15, 15
   orig: 17, 17
   offset: 1, 1
   index: -1
 image_poor/right_eye_ball
   rotate: false
-  xy: 775, 541
+  xy: 540, 10
   size: 16, 16
   orig: 18, 18
   offset: 1, 1
   index: -1
 image_poor/tear
   rotate: false
-  xy: 755, 530
+  xy: 2, 6
   size: 10, 10
   orig: 12, 12
   offset: 1, 1
   index: -1
 image_poor/tear copy 2
   rotate: false
-  xy: 459, 559
+  xy: 927, 738
   size: 349, 1308
   orig: 352, 1310
   offset: 2, 1
   index: -1
 left_elbow
-  rotate: false
-  xy: 1344, 385
+  rotate: true
+  xy: 1045, 73
   size: 140, 129
   orig: 151, 132
   offset: 10, 2
   index: -1
 left_eye
   rotate: false
-  xy: 536, 538
+  xy: 338, 7
   size: 33, 19
   orig: 35, 21
   offset: 1, 1
   index: -1
 left_eye_brow
   rotate: false
-  xy: 637, 540
+  xy: 439, 9
   size: 48, 17
   orig: 51, 21
   offset: 2, 2
   index: -1
 left_eye_close
   rotate: false
-  xy: 571, 539
+  xy: 373, 8
   size: 44, 18
   orig: 48, 21
   offset: 2, 2
   index: -1
 left_eyeball
   rotate: false
-  xy: 617, 539
+  xy: 419, 8
   size: 18, 18
   orig: 20, 20
   offset: 1, 1
   index: -1
 left_eyelash
   rotate: false
-  xy: 810, 531
+  xy: 927, 707
   size: 48, 29
   orig: 52, 33
   offset: 2, 3
   index: -1
 left_hand
   rotate: true
-  xy: 1486, 406
+  xy: 1176, 105
   size: 108, 84
   orig: 115, 91
   offset: 6, 1
   index: -1
 lina_body
   rotate: false
-  xy: 810, 562
+  xy: 1278, 741
   size: 447, 1305
   orig: 449, 1307
   offset: 1, 1
   index: -1
 right_eye
   rotate: false
-  xy: 687, 540
+  xy: 489, 9
   size: 30, 17
   orig: 32, 19
   offset: 1, 1
   index: -1
 right_eye_brow
   rotate: false
-  xy: 738, 542
+  xy: 558, 11
   size: 35, 15
   orig: 38, 17
   offset: 1, 1
   index: -1
 right_eye_close
   rotate: false
-  xy: 502, 537
+  xy: 304, 6
   size: 32, 20
   orig: 34, 22
   offset: 1, 1
   index: -1
 right_eyeball
   rotate: false
-  xy: 719, 540
+  xy: 521, 9
   size: 17, 17
   orig: 19, 19
   offset: 1, 1
   index: -1
 right_eyelash
   rotate: false
-  xy: 459, 529
+  xy: 807, 2
   size: 41, 28
   orig: 44, 32
   offset: 2, 2
   index: -1
 skin3/skin_3
-  rotate: true
-  xy: 2, 2
-  size: 486, 1340
-  orig: 488, 1342
-  offset: 1, 1
+  rotate: false
+  xy: 2, 690
+  size: 461, 1356
+  orig: 477, 1372
+  offset: 15, 15
   index: -1
 skin_1/skin_1
   rotate: false
-  xy: 1344, 516
-  size: 465, 1351
-  orig: 468, 1368
-  offset: 2, 1
+  xy: 465, 696
+  size: 460, 1350
+  orig: 465, 1352
+  offset: 3, 1
   index: -1
 skin_2/skin2
-  rotate: false
-  xy: 2, 490
-  size: 455, 1377
-  orig: 570, 1395
-  offset: 107, 2
+  rotate: true
+  xy: 2, 215
+  size: 473, 1355
+  orig: 624, 1357
+  offset: 3, 1
+  index: -1
+skin_bag/bag_1
+  rotate: true
+  xy: 304, 28
+  size: 185, 260
+  orig: 187, 264
+  offset: 1, 2
+  index: -1
+skin_bag/bag_2
+  rotate: true
+  xy: 807, 32
+  size: 181, 236
+  orig: 184, 239
+  offset: 1, 1
+  index: -1
+skin_bag/bag_3
+  rotate: true
+  xy: 566, 28
+  size: 185, 239
+  orig: 187, 243
+  offset: 1, 2
+  index: -1
+skin_bag/bag_4
+  rotate: true
+  xy: 2, 18
+  size: 195, 300
+  orig: 199, 303
+  offset: 2, 1
   index: -1
